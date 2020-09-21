@@ -1,6 +1,7 @@
 /* Api methods to call /functions */
 
 const create = (data) => {
+  console.log(`create data: ${data}`)
   return fetch('/.netlify/functions/todos-create', {
     body: JSON.stringify(data),
     method: 'POST'
@@ -10,7 +11,8 @@ const create = (data) => {
 }
 
 const readAll = () => {
-  return fetch('/.netlify/functions/todos-read-all').then((response) => {
+  return fetch('/.netlify/functions/todos-read-all').then((response) => {   
+    console.log(`readAll data: ${response.json()}`)
     return response.json()
   })
 }
@@ -25,9 +27,11 @@ const update = (todoId, data) => {
 }
 
 const deleteTodo = (todoId) => {
+  console.log(`delete data: ${todoId}`)
   return fetch(`/.netlify/functions/todos-delete/${todoId}`, {
     method: 'POST',
   }).then(response => {
+    
     return response.json()
   })
 }
