@@ -91,7 +91,7 @@ export default class App extends Component {
   deleteTodo = (e) => {
     const { todos } = this.state
     const todoId = e.target.dataset.id
-
+    consloe.log(`todoId: ${todoId}`)
     // Optimistically remove todo from UI
     const filteredTodos = todos.reduce((acc, current) => {
       const currentId = getTodoId(current)
