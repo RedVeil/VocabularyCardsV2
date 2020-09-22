@@ -73,7 +73,6 @@ export default function App() {
       */
       const persistedState = removeOptimisticCards(cards).concat(response)
       updateCards(persistedState);
-      console.log("persistent")
     }).catch((e) => {
       console.log('An API error occurred', e)
       const revertedState = removeOptimisticCards(cards)
@@ -82,7 +81,6 @@ export default function App() {
   };
 
   const cardClick = (correct, cardKey) => {
-    console.log(cardKey)
     if(correct && cardKey){
       api.delete(cardKey).then(() => {
         console.log(`deleted todo id ${cardKey}`)
@@ -117,7 +115,6 @@ export default function App() {
 
   return (
     <div className="App">
-    <div>{index}</div>
      <button id="showFormButton" onClick={showHideForm}><Plus className="buttonIcon" color="white"/></button>
       <AddCardForm addCard={addCard} closeAddCardForm={showHideForm} style={{visibility: formVisibility ? "visible": "hidden"}}/>
       {cards.length !== 0 ? transitions.map(({ item, transitionStyle, key}) => {
@@ -133,7 +130,6 @@ export default function App() {
                 transitionStyle={transitionStyle} 
                 cardClick={cardClick}/>
         }) : <div>You have no more Cards...</div>}
-      <button>delete</button>
     </div>
   )
-}
+};
