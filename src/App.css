@@ -1,194 +1,172 @@
-.todo-list {
-  padding: 60px;
-  padding-top: 10px;
-  width: 600px;
-}
-.todo-settings-toggle {
-  fill: #b7b9bd;
-  width: 25px;
-  margin-left: 10px;
-  cursor: pointer;
-}
-.todo-create-wrapper {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-}
-.todo-actions {
-  display: flex;
-  align-items: center;
-}
-.todo-create-input {
-  font-size: 14px;
-  padding: 11px 15px;
-  min-width: 300px;
-  display: inline-block;
-  box-shadow: 0px 0px 0px 2px rgba(120, 130, 152, 0.25);
-  border: none;
-  outline: none;
-  transition: all 0.3s ease;
-}
-.todo-create-input:hover, .todo-create-input:active, .todo-create-input:focus {
-  box-shadow: 0px 0px 0px 2px rgb(43, 190, 185);
-  box-shadow: 0px 0px 0px 2px #00ad9f;
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
 
-.todo-item {
-  padding: 15px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 43px;
-}
-.todo-list-title {
-  font-size: 17px;
-  font-weight: 500;
-  color: #5a5a5a;
-  flex-grow: 1;
-  position: relative;
-  z-index: 2;
-  margin-left: 45px;
-  width: 470px;
-}
-.todo-list-title:hover span[contenteditable="false"]:before {
-  content: 'click to edit';
-  position: absolute;
-  top: -6px;
-  left: 11px;
-  font-size: 11px;
-  font-weight: 300;
-  color: #adadad;
-  letter-spacing: 1px;
-}
-.mobile-toggle {
-  display: none;
-}
-.desktop-toggle {
-  margin-left: 10px;
-  margin-bottom: 3px;
-}
-
-@media (max-width: 768px) {
-  .mobile-toggle {
-    display: inline-flex;
-  }
-  .desktop-toggle {
-    display: none;
-  }
-  .todo-list {
-    padding: 15px;
-    padding-top: 10px;
-    width: auto;
-  }
-  .todo-list h2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-    max-width: 95%;
-  }
-  .todo-list-title {
-    /* Disable Auto Zoom in Input “Text” tag - Safari on iPhone */
-    font-size: 16px;
-    max-width: 80%;
-    margin-left: 40px;
-  }
-  .todo-create-wrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 15px;
-  }
-  .todo-create-input {
-    appearance: none;
-    border: 1px solid rgba(120, 130, 152, 0.25);
-    /* Disable Auto Zoom in Input “Text” tag - Safari on iPhone */
-    font-size: 16px;
-    margin-bottom: 15px;
-    min-width: 85%;
-  }
-  .todo-item button {
-    padding: 4px 12px;
-    font-size: 14px;
-    margin-bottom: 0px;
-    min-width: 63px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .todo-list-title:hover span[contenteditable="false"]:before {
-    content: ''
-  }
-  .todo-list-title:hover span[contenteditable="true"]:before {
-    content: 'click to edit';
-    position: absolute;
-    top: -20px;
-    left: 9px;
-    font-size: 11px;
-    font-weight: 300;
-    color: #adadad;
-    letter-spacing: 1px;
-  }
-}
-
-/** todo css via https://codepen.io/shshaw/pen/WXMdwE 😻 */
-.todo {
-  display: inline-block;
-  position: relative;
-  padding: 0;
+html,
+body,
+#root {
   margin: 0;
-  min-height: 40px;
-  min-width: 40px;
-  cursor: pointer;
-  padding-right: 5px;
-}
-.todo__state {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-}
-
-.todo__icon {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 280px;
+  padding: 0;
   height: 100%;
-  margin: auto;
-  fill: none;
-  stroke: #27FDC7;
-  stroke-width: 2;
-  stroke-linejoin: round;
-  stroke-linecap: round;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  background: #e9e9e9;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto,
+    segoe ui, arial, sans-serif;
+  font-size: 42px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color:rgb(83, 83, 83);
+}
+
+#root > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App{
+  perspective: 1000px;
+}
+
+.c {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: 90vh;
+  cursor: pointer;
+  will-change: transform, opacity;
+  border-radius: 20px;
+  background:rgb(252, 251, 245);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+}
+
+.text{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.back .text{
+  color:white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.newCardContainer{
+  z-index: 2;
+  margin: 0;
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height:90vh;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+}
+
+.newCardForm{
+  position: absolute;
+  display: inline;
+  z-index: 2;
+  top:30%;
+  left:50%;
+  text-align: center; 
+}
+
+.newCardForm form{
+  position: relative; 
+  left: -50%;
+}
+
+.newCardForm .textInput{
+  background:#fff;
+}
+
+.translationForm {
+  position: absolute;
+  display: inline;
   z-index: 1;
+  top: 35%;
+  left:50%;
+  text-align: center; 
 }
 
-.todo__state:checked ~ .todo-list-title {
-  text-decoration: line-through;
+.translationForm form{
+  position: relative; 
+  left: -50%;
 }
 
-.todo__box {
-  stroke-dasharray: 56.1053, 56.1053;
-  stroke-dashoffset: 0;
-  transition-delay: 0.16s;
-}
-.todo__check {
-  stroke: #27FDC7;
-  stroke-dasharray: 9.8995, 9.8995;
-  stroke-dashoffset: 9.8995;
-  transition-duration: 0.25s;
-}
-
-.todo__state:checked ~ .todo__icon .todo__box {
-  stroke-dashoffset: 56.1053;
-  transition-delay: 0s;
-  stroke-dasharray: 56.1053, 56.1053;
-  stroke-dashoffset: 0;
-  stroke: red;
+.textInput{
+  background:rgb(252, 251, 245);
+  border: 1px solid #ed2553;
+  border-radius: 32px;
+  padding:12px;
+  margin:10px;
+  font-family: raleway;
+  font-size: 14px;
+  font-weight: 500;
+  color: grey;
+  outline: none;
 }
 
-.todo__state:checked ~ .todo__icon .todo__check {
-  stroke-dashoffset: 0;
-  transition-delay: 0s;
+#showFormButton{
+  position: absolute;
+  top:80vh;
+  left:65vw;
+  z-index: 2;
+  background: #ed2553;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+  outline: none;
+}
+
+#showFormButton:hover{
+  background: lightcoral;
+}
+
+#hideFormButton{
+  width: 42px;
+  height: 42px;
+  border-radius: 100%;
+  background:none;
+  border:none;
+  cursor: pointer;
+  outline: none;
+}
+
+#hideFormButton:hover{
+  background: rgb(210, 232, 240);
+}
+
+#submitButton{
+  position: relative;
+  top:0.8vh;
+  cursor: pointer;
+  background:none;
+  border:none;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto,
+    segoe ui, arial, sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color:rgb(83, 83, 83);
+  outline: none;
+}
+
+#submitButton:hover{
+  color:rgb(54, 54, 54);
+}
+
+.buttonIcon{
+  position: relative;
+  top:2px;
 }

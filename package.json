@@ -9,7 +9,11 @@
     "markdown-magic": "^1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-feather": "^2.0.8",
+    "react-hook-form": "^6.8.3",
+    "react-scripts": "3.4.1",
+    "react-spring": "^8.0.27",
+    "uuid": "^8.3.0"
   },
   "scripts": {
     "bootstrap": "netlify dev:exec node ./scripts/bootstrap-fauna-database.js",

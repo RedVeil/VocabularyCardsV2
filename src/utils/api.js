@@ -1,7 +1,7 @@
 /* Api methods to call /functions */
 
 const create = (data) => {
-  return fetch('/.netlify/functions/todos-create', {
+  return fetch('/.netlify/functions/create-card', {
     body: JSON.stringify(data),
     method: 'POST'
   }).then(response => {
@@ -10,34 +10,14 @@ const create = (data) => {
 }
 
 const readAll = () => {
-  return fetch('/.netlify/functions/todos-read-all').then((response) => {
+  return fetch('/.netlify/functions/read-all-cards').then((response) => {
     return response.json()
   })
 }
 
-const update = (todoId, data) => {
-  return fetch(`/.netlify/functions/todos-update/${todoId}`, {
-    body: JSON.stringify(data),
-    method: 'POST'
-  }).then(response => {
-    return response.json()
-  })
-}
-
-const deleteTodo = (todoId) => {
-  return fetch(`/.netlify/functions/todos-delete/${todoId}`, {
+const deleteCard = (cardId) => {
+  return fetch(`/.netlify/functions/delete-card/${cardId}`, {
     method: 'POST',
-  }).then(response => {
-    return response.json()
-  })
-}
-
-const batchDeleteTodo = (todoIds) => {
-  return fetch(`/.netlify/functions/todos-delete-batch`, {
-    body: JSON.stringify({
-      ids: todoIds
-    }),
-    method: 'POST'
   }).then(response => {
     return response.json()
   })
@@ -46,7 +26,5 @@ const batchDeleteTodo = (todoIds) => {
 export default {
   create: create,
   readAll: readAll,
-  update: update,
-  delete: deleteTodo,
-  batchDelete: batchDeleteTodo
+  delete: deleteCard,
 }

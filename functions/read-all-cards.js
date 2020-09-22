@@ -4,12 +4,12 @@ const q = faunadb.query
 
 
 exports.handler = (event, context) => {
-  console.log('Function `todo-read-all` invoked')
+  console.log('Function `read-all-cards` invoked')
   /* configure faunaDB Client with our secret */
   const client = new faunadb.Client({
-    secret: process.env.FAUNADB_SERVER_SECRET
+    secret: "fnAD2RsttSACB-rWArdacRo7dvrsYGglnhMvtOQn" //process.env.FAUNADB_SERVER_SECRET
   }) 
-  return client.query(q.Paginate(q.Match(q.Ref('indexes/all_todos'))))
+  return client.query(q.Paginate(q.Match(q.Ref('indexes/all_cards'))))
     .then((response) => {
       const todoRefs = response.data
       console.log('Todo refs', todoRefs)
