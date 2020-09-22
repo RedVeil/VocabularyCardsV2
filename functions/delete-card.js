@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
   console.log(event.Path)
   const id = getId(event.path)
   console.log(`Function 'delete-card' invoked. delete id: ${id}`)
-  return client.query(q.Delete(q.Ref(`classes/todos/${id}`)))
+  return client.query(q.Delete(q.Ref(`classes/cards/${id}`)))
     .then((response) => {
       console.log('success', response)
       return {

@@ -16,6 +16,7 @@ const readAll = () => {
 }
 
 const deleteCard = (cardId) => {
+  console.log(`api cardId ${cardId}`)
   return fetch(`/.netlify/functions/delete-card/${cardId}`, {
     method: 'POST',
   }).then(response => {
