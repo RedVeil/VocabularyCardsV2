@@ -19,6 +19,7 @@ const deleteCard = (cardId) => {
   return fetch(`/.netlify/functions/delete-card/${cardId}`, {
     method: 'POST',
   }).then(response => {
+    
     return response.json()
   })
 }
