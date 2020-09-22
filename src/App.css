@@ -166,8 +166,14 @@ body,
   color:rgb(54, 54, 54);
 }
 
-.buttonIcon{
+#hideFormButton .buttonIcon{
   position: relative;
   top:4px;
+  right:2px;
+}
+
+#showFormButton .buttonIcon{
+  position: relative;
+  top:3px;
   right:2px;
 }
