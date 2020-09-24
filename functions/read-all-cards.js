@@ -9,7 +9,8 @@ exports.handler = (event, context) => {
   const client = new faunadb.Client({
     secret: "fnAD2RsttSACB-rWArdacRo7dvrsYGglnhMvtOQn" //process.env.FAUNADB_SERVER_SECRET
   }) 
-  return client.query(q.Paginate(q.Match(q.Ref('indexes/all_cards'))))
+  return client.query(
+    q.Paginate(q.Match(q.Index('cards_by_user'), 1))) //q.Ref('indexes/all_cards')
     .then((response) => {
       const todoRefs = response.data
       console.log('Todo refs', todoRefs)
