@@ -25,11 +25,6 @@ export default function App() {
     if(userId){
       api.readAll().then((dbData) => {
         if (dbData.message === 'unauthorized') {
-          if (isLocalHost()) {
-            alert('FaunaDB key is not unauthorized. Make sure you set it in terminal session where you ran `npm start`. Visit http://bit.ly/set-fauna-key for more info')
-          } else {
-            alert('FaunaDB key is not unauthorized. Verify the key `FAUNADB_SERVER_SECRET` set in Netlify enviroment variables is correct')
-          }
           return false
         }
         console.log('all cards', dbData);
@@ -139,11 +134,6 @@ export default function App() {
     };
     api.getUser(user).then((data) => {
       if (data.message === 'unauthorized') {
-        if (isLocalHost()) {
-          alert('FaunaDB key is not unauthorized. Make sure you set it in terminal session where you ran `npm start`. Visit http://bit.ly/set-fauna-key for more info')
-        } else {
-          alert('FaunaDB key is not unauthorized. Verify the key `FAUNADB_SERVER_SECRET` set in Netlify enviroment variables is correct')
-        }
         return false
       }
       console.log('all User', data);
@@ -153,11 +143,6 @@ export default function App() {
 
       api.readAll().then((dbData) => {
         if (dbData.message === 'unauthorized') {
-          if (isLocalHost()) {
-            alert('FaunaDB key is not unauthorized. Make sure you set it in terminal session where you ran `npm start`. Visit http://bit.ly/set-fauna-key for more info')
-          } else {
-            alert('FaunaDB key is not unauthorized. Verify the key `FAUNADB_SERVER_SECRET` set in Netlify enviroment variables is correct')
-          }
           return false
         }
         console.log('all cards', dbData)
