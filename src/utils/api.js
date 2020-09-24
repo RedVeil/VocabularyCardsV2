@@ -24,8 +24,25 @@ const deleteCard = (cardId) => {
   })
 }
 
+const createUser = (data) => {
+  return fetch('/.netlify/functions/create-user', {
+    body: JSON.stringify(data),
+    method: 'POST'
+  }).then(response => {
+    return response.json()
+  })
+}
+
+const getUser = () => {
+  return fetch('/.netlify/functions/get-user').then((response) => {
+    return response.json()
+  })
+}
+
 export default {
   create: create,
   readAll: readAll,
   delete: deleteCard,
+  getUser: getUser,
+  createUser: createUser
 }
