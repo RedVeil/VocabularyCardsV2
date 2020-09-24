@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect,  } from 'react' //useCallback
 //import { useTransition } from 'react-spring'
 import { Plus } from 'react-feather';
 import { v4 as uuidv4 } from 'uuid';
@@ -40,7 +40,7 @@ export default function App() {
   }, []);
   const [user, updateUser] = useState(false);
   const [cards, updateCards] = useState([]);
-  const [index, set] = useState(0);
+  //const [index, set] = useState(0);
   const [formVisibility, changeVisibility] = useState(false);
   //const nextCard = useCallback(() => set(state => state + 1), []);
 
