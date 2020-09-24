@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useTransition } from 'react-spring'
 import { Plus } from 'react-feather';
+import { v4 as uuidv4 } from 'uuid';
 import analytics from './utils/analytics'
 import api from './utils/api'
 import isLocalHost from './utils/isLocalHost'
 import Card from "./components/Card";
 import AddCardForm from "./components/AddCardForm";
+import Authform from "./components/AuthForm";
 import './App.css'
 
 
@@ -18,22 +20,25 @@ function removeOptimisticCards(cards) {
 
 export default function App() {
   useEffect(() => {
-    /* Track a page view */
     analytics.page()
-    api.readAll().then((dbData) => {
-      if (dbData.message === 'unauthorized') {
-        if (isLocalHost()) {
-          alert('FaunaDB key is not unauthorized. Make sure you set it in terminal session where you ran `npm start`. Visit http://bit.ly/set-fauna-key for more info')
-        } else {
-          alert('FaunaDB key is not unauthorized. Verify the key `FAUNADB_SERVER_SECRET` set in Netlify enviroment variables is correct')
+    const userId = localStorage.getItem('userID');
+    if(userId){
+      api.readAll().then((dbData) => {
+        if (dbData.message === 'unauthorized') {
+          if (isLocalHost()) {
+            alert('FaunaDB key is not unauthorized. Make sure you set it in terminal session where you ran `npm start`. Visit http://bit.ly/set-fauna-key for more info')
+          } else {
+            alert('FaunaDB key is not unauthorized. Verify the key `FAUNADB_SERVER_SECRET` set in Netlify enviroment variables is correct')
+          }
+          return false
         }
-        return false
-      }
-      console.log('all cards', dbData);
-      updateCards(dbData);
-    })
+        console.log('all cards', dbData);
+        updateUser(userId);
+        updateCards(dbData);
+      })
+    }
   }, []);
-
+  const [user, updateUser] = useState(false);
   const [cards, updateCards] = useState([]);
   const [index, set] = useState(0);
   const [formVisibility, changeVisibility] = useState(false);
@@ -49,7 +54,7 @@ export default function App() {
     const newCard = {
       original: cardData[0],
       translation: cardData[1],
-      user_id: 1
+      user_id: "1"
     };
     const optimisticNewCard = {
       data: newCard,
@@ -75,7 +80,7 @@ export default function App() {
   };
 
   const cardClick = (correct, cardKey) => {
-    if(correct && cardKey){
+    if (correct && cardKey) {
       api.delete(cardKey).then(() => {
         console.log(`deleted todo id ${cardKey}`)
         /*analytics.track('todoDeleted', {
@@ -85,7 +90,7 @@ export default function App() {
         console.log(`There was an error removing ${cardKey}`, e)
       })
     };
-    if(index === cards.length-1){
+    if (index === cards.length - 1) {
       api.readAll().then((dbData) => {
         if (dbData.message === 'unauthorized') {
           if (isLocalHost()) {
@@ -103,15 +108,71 @@ export default function App() {
     }
   };
 
+  const registerUser = (name, email) => {
+    const user_id = uuidv4()
+    const newUser = {
+      name: name,
+      email: email,
+      user_id: user_id
+    };
+    api.createUser(newUser).then((response) => {
+      console.log(response)
+      /* Track a custom event */
+      /*analytics.track('cardsCreated', {
+        category: 'cards',
+        label: newCard,
+      })
+      */
+      localStorage.setItem('userID', user_id);
+      updateUser(user_id);
+    }).catch((e) => {
+      console.log('An API error occurred', e);
+      localStorage.removeItem('userID');
+      updateUser(false);
+    })
+  };
+
+  const checkUser = (name, email) => {
+    api.getUser().then((data) => {
+      if (data.message === 'unauthorized') {
+        if (isLocalHost()) {
+          alert('FaunaDB key is not unauthorized. Make sure you set it in terminal session where you ran `npm start`. Visit http://bit.ly/set-fauna-key for more info')
+        } else {
+          alert('FaunaDB key is not unauthorized. Verify the key `FAUNADB_SERVER_SECRET` set in Netlify enviroment variables is correct')
+        }
+        return false
+      }
+      console.log('all User', data);
+      const db_user_id = data.data.user_id;
+      updateUser(db_user_id);
+      localStorage.setItem("userID", db_user_id);
+
+      api.readAll().then((dbData) => {
+        if (dbData.message === 'unauthorized') {
+          if (isLocalHost()) {
+            alert('FaunaDB key is not unauthorized. Make sure you set it in terminal session where you ran `npm start`. Visit http://bit.ly/set-fauna-key for more info')
+          } else {
+            alert('FaunaDB key is not unauthorized. Verify the key `FAUNADB_SERVER_SECRET` set in Netlify enviroment variables is correct')
+          }
+          return false
+        }
+        console.log('all cards', dbData)
+        updateCards(dbData);
+      });
+      return true
+    });
+  };
+
   const showHideForm = () => {
     changeVisibility(!formVisibility);
   };
 
   return (
     <div className="App">
-     <button id="showFormButton" onClick={showHideForm}><Plus className="buttonIcon" color="white"/></button>
-      <AddCardForm addCard={addCard} closeAddCardForm={showHideForm} style={{visibility: formVisibility ? "visible": "hidden"}}/>
-      {cards.length !== 0 ? transitions.map(({ item, transitionStyle, key}) => {
+      <button id="showFormButton" onClick={showHideForm}><Plus className="buttonIcon" color="white" /></button>
+      <AddCardForm addCard={addCard} closeAddCardForm={showHideForm} style={{ visibility: formVisibility ? "visible" : "hidden" }} />
+      {!user && <Authform registerUser={registerUser} checkUser={checkUser} />}
+      {/*cards.length !== 0 ? transitions.map(({ item, transitionStyle, key}) => {
         let cardKey
         if(cards[item].ref !== undefined){
           cardKey = cards[item].ref['@ref'].id;
@@ -123,7 +184,7 @@ export default function App() {
                 cardKey={cardKey} 
                 transitionStyle={transitionStyle} 
                 cardClick={cardClick}/>
-        }) : <div>You have no more Cards...</div>}
+        }) : <div>You have no more Cards...</div>*/}
     </div>
   )
 };

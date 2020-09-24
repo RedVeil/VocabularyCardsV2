@@ -8,11 +8,12 @@ exports.handler = (event, context) => {
   /* configure faunaDB Client with our secret */
   const client = new faunadb.Client({
     secret: "fnAD2RsttSACB-rWArdacRo7dvrsYGglnhMvtOQn" //process.env.FAUNADB_SERVER_SECRET
-  }) 
+  })
+  const data = JSON.parse(event.body)
   return client.query(
     q.Paginate(q.Union(
-      q.Match(q.Index('user_by_email_and_name'), "tiffanym340@gmail.com"),
-      q.Match(q.Index('user_by_email_and_name'), "Tiff"))) //q.Ref('indexes/all_cards')
+      q.Match(q.Index('user_by_email_and_name'), data.email),
+      q.Match(q.Index('user_by_email_and_name'), data.mail))) //q.Ref('indexes/all_cards')
     .then((response) => {
       const userRefs = response.data
       console.log('User refs', userRefs)

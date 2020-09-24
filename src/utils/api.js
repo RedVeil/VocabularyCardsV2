@@ -9,8 +9,10 @@ const create = (data) => {
   })
 }
 
-const readAll = () => {
-  return fetch('/.netlify/functions/read-all-cards').then((response) => {
+const readAll = (userID) => {
+  return fetch(`/.netlify/functions/read-all-cards/${userID}`,{
+    method: 'POST',
+  }).then((response) => {
     return response.json()
   })
 }
@@ -19,7 +21,6 @@ const deleteCard = (cardId) => {
   return fetch(`/.netlify/functions/delete-card/${cardId}`, {
     method: 'POST',
   }).then(response => {
-    
     return response.json()
   })
 }
@@ -33,8 +34,11 @@ const createUser = (data) => {
   })
 }
 
-const getUser = () => {
-  return fetch('/.netlify/functions/get-user').then((response) => {
+const getUser = (data) => {
+  return fetch('/.netlify/functions/get-user',{
+    body: JSON.stringify(data),
+    method: 'POST'
+  }).then((response) => {
     return response.json()
   })
 }
