@@ -20,7 +20,7 @@ export default function AddCardForm(props) {
   }
     
   return (
-    <a.div className="newCardContainer" style={props.style, expandStyle}>
+    <a.div className="newCardContainer" style={{...props.style, ...expandStyle}}>
       <div className="newCardForm">
         <button id="hideFormButton" onClick={() => closeForm} ><X className="buttonIcon" color="darkgrey" /></button>
         <form onSubmit={handleSubmit(onSubmit)}>
