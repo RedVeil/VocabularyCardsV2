@@ -4,7 +4,6 @@ import { Plus } from 'react-feather';
 import { v4 as uuidv4 } from 'uuid';
 import analytics from './utils/analytics'
 import api from './utils/api'
-import isLocalHost from './utils/isLocalHost'
 //import Card from "./components/Card";
 import AddCardForm from "./components/AddCardForm";
 import Authform from "./components/AuthForm";
