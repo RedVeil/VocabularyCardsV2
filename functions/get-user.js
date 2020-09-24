@@ -25,7 +25,7 @@ exports.handler = (event, context) => {
       return client.query(getAllUserDataQuery).then((ret) => {
         return {
           statusCode: 200,
-          body: JSON.stringify(data)
+          body: JSON.stringify(ret)
           //body: JSON.stringify(ret)
         }
       })
