@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useTransition } from 'react-spring'
+//import { useTransition } from 'react-spring'
 import { Plus } from 'react-feather';
 import { v4 as uuidv4 } from 'uuid';
 import analytics from './utils/analytics'
 import api from './utils/api'
 import isLocalHost from './utils/isLocalHost'
-import Card from "./components/Card";
+//import Card from "./components/Card";
 import AddCardForm from "./components/AddCardForm";
 import Authform from "./components/AuthForm";
 import './App.css'
@@ -42,13 +42,13 @@ export default function App() {
   const [cards, updateCards] = useState([]);
   const [index, set] = useState(0);
   const [formVisibility, changeVisibility] = useState(false);
-  const nextCard = useCallback(() => set(state => state + 1), []);
+  //const nextCard = useCallback(() => set(state => state + 1), []);
 
-  const transitions = useTransition(index, p => p, {
+  /*const transitions = useTransition(index, p => p, {
     from: { opacity: 0, transform: 'translate3d(100%,0,0)' },
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
     leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
-  });
+  });*/
 
   const addCard = (cardData) => {
     const newCard = {
@@ -79,14 +79,14 @@ export default function App() {
     })
   };
 
-  const cardClick = (correct, cardKey) => {
+  /*const cardClick = (correct, cardKey) => {
     if (correct && cardKey) {
       api.delete(cardKey).then(() => {
         console.log(`deleted todo id ${cardKey}`)
         /*analytics.track('todoDeleted', {
           category: 'cards',
         })*/
-      }).catch((e) => {
+      /*}).catch((e) => {
         console.log(`There was an error removing ${cardKey}`, e)
       })
     };
@@ -106,7 +106,7 @@ export default function App() {
     } else {
       nextCard();
     }
-  };
+  };*/
 
   const registerUser = (name, email) => {
     const user_id = uuidv4()
