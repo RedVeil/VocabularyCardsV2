@@ -35,7 +35,7 @@ const createUser = (data) => {
 }
 
 const getUser = (data) => {
-  console.log(`get user ${data}`)
+  console.log(`get user ${data.name} ${data.email}`)
   return fetch('/.netlify/functions/get-user',{
     body: JSON.stringify(data),
     method: 'POST'

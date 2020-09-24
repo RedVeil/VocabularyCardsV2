@@ -12,8 +12,8 @@ exports.handler = (event, context) => {
   const data = JSON.parse(event.body);
   return client.query(
     q.Paginate(q.Union(
-      q.Match(q.Index('user_by_email_and_name'), data.name),
-      q.Match(q.Index('user_by_email_and_name'), data.email)))) //q.Ref('indexes/all_cards')
+      q.Match(q.Index('user_by_email_and_name'), data.email),
+      q.Match(q.Index('user_by_email_and_name'), data.name)))) //q.Ref('indexes/all_cards')
     .then((response) => {
       const userRefs = response.data
       console.log('User refs', userRefs)
