@@ -15,21 +15,14 @@ exports.handler = (event, context) => {
       q.Match(q.Index('user_by_email_and_name'), data.email),
       q.Match(q.Index('user_by_email_and_name'), data.name)))) //q.Ref('indexes/all_cards')
     .then((response) => {
-      const userRefs = response.data
-      console.log('User refs', userRefs)
-      console.log(`${userRefs.length} users found`)
-      const getAllUserDataQuery = userRefs.map((ref) => {
-        return q.Get(ref)
-      })
-      // then query the refs
-      return client.query(getAllUserDataQuery).then((ret) => {
-        return {
-          statusCode: 200,
-          body: JSON.stringify(ret)
-          //body: JSON.stringify(ret)
-        }
-      })
-    }).catch((error) => {
+      console.log('success', response)
+      /* Success! return the response with statusCode 200 */
+      return {
+        statusCode: 200,
+        body: JSON.stringify(response)
+      }
+    })
+    .catch((error) => {
       console.log('error', error)
       return {
         statusCode: 400,
