@@ -132,8 +132,12 @@ export default function App() {
     })
   };
 
-  const checkUser = (name, email) => {
-    api.getUser().then((data) => {
+  const checkUser = (userName, userEmail) => {
+    const user = {
+      name:userName,
+      email:userEmail,
+    };
+    api.getUser(user).then((data) => {
       if (data.message === 'unauthorized') {
         if (isLocalHost()) {
           alert('FaunaDB key is not unauthorized. Make sure you set it in terminal session where you ran `npm start`. Visit http://bit.ly/set-fauna-key for more info')
