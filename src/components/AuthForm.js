@@ -18,9 +18,9 @@ export default function AuthForm(props) {
     if (data.signup){
       set(state => !state);
       setCorrect(state => !state);
-      props.registerUser(data.name, data.email);
+      props.registerUser(data.name.trim().toLowerCase(), data.email.trim().toLowerCase());
     } else {
-      if (props.checkUser(data.name, data.email)) {
+      if (props.checkUser(data.name.trim().toLowerCase(), data.email.trim().toLowerCase())) {
         set(state => !state);
         setCorrect(state => !state);
       } else {
