@@ -20,7 +20,7 @@ exports.handler = (event, context) => {
       /* Success! return the response with statusCode 200 */
       return {
         statusCode: 200,
-        body: JSON.stringify("1")
+        body: JSON.stringify(1)
       }
     })
     .catch((error) => {

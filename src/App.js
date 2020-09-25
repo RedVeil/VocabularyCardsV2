@@ -140,7 +140,7 @@ export default function App() {
       updateUser(db_user_id);
       localStorage.setItem("userID", db_user_id);
 
-      api.readAll().then((dbData) => {
+      api.readAll(db_user_id).then((dbData) => {
         if (dbData.message === 'unauthorized') {
           return false
         }
