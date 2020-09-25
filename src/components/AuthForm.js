@@ -20,10 +20,12 @@ export default function AuthForm(props) {
       setCorrect(state => !state);
       props.registerUser(data.name, data.email);
     } else {
-      set(state => !state);
       if (props.checkUser(data.name, data.email)) {
+        set(state => !state);
         setCorrect(state => !state);
-      };
+      } else {
+        set(state => !state);
+      }
     };
   };
 
