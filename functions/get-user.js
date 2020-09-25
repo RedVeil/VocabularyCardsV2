@@ -14,7 +14,7 @@ exports.handler = (event, context) => {
   return client.query(
     q.Paginate(
       q.Match(
-        q.Index('user_by_name'), data.email //q.Ref('indexes/all_cards')
+        q.Index('user_by_email_and_name'), data.email,data.email //q.Ref('indexes/all_cards')
       ),
     )
   ).then((response) => {

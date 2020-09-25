@@ -136,7 +136,7 @@ export default function App() {
         return false
       }
       console.log('all User', data);
-      const db_user_id = data //.data.user_id;
+      const db_user_id = data[0] //.data.user_id;
       updateUser(db_user_id);
       localStorage.setItem("userID", db_user_id);
 
