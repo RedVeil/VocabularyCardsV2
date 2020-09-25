@@ -48,7 +48,7 @@ export default function App() {
     const newCard = {
       original: cardData[0],
       translation: cardData[1],
-      user_id: "1"
+      user_id: user_id
     };
     const optimisticNewCard = {
       data: newCard,
