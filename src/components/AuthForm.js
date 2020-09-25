@@ -33,13 +33,16 @@ export default function AuthForm(props) {
                                 opacity: opacity.interpolate(o => 1 - o), 
                                 transform, 
                                 background: flipped && correct ? "lightgreen" : "rgb(252, 251, 245)"}}>
-        {flipped && !correct ? <p id="errorMessage">I couldnt find you</p> : ""}
+        {flipped && !correct ? <div id="errorMessage">I couldnt find you</div> : ""}
         <div className="translationForm">
           <form onSubmit={handleSubmit(onSubmit)}>
             <input className="textInput" name="name" ref={register({ required: true })} placeholder="An app needs a name..." />
             <input className="textInput" name="email" ref={register({ required: true })} placeholder="...and a mail" />
-            <label htmlFor="signup" id="signupLabel">Sign Up</label>
-            <input className="checkbox" type="checkbox" name="signup" ref={register}/>
+            <label className="signup-label">
+              <input className="checkbox" type="checkbox" name="signup" ref={register}/>
+              <span className="checkbox-custom"></span>
+              Sign Up
+            </label>
             <input id="submitButton" type="submit" value="Login"/>
           </form>
         </div>

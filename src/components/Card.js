@@ -38,7 +38,7 @@ export default function Card(props) {
         <p className="text">{props.front}</p>
         
       </a.div>
-      <a.div className="c back" style={{ background: correct ? "lightgreen" : "lightpink", opacity: opacity.interpolate(o => 1 - o), transform }}>
+      <a.div className="c back" style={{ background: correct ? "lightgreen" : "lightcoral", opacity: opacity.interpolate(o => 1 - o), transform }}>
         <p className="text">{props.back}</p>
       </a.div>
     </a.div>

@@ -148,8 +148,10 @@ export default function App() {
 
   return (
     <div className="App">
-      <button id="showFormButton" onClick={showHideForm}><Plus className="buttonIcon" color="white" /></button>
       <AddCardForm addCard={addCard} closeAddCardForm={showHideForm} style={{ visibility: formVisibility ? "visible" : "hidden" }} />
+      <button id="showFormButton" onClick={showHideForm} style={{visibility: user ? "visible" : "hidden"}}>
+        <Plus className="buttonIcon" color="white" />
+      </button>
       {!user && <Authform registerUser={registerUser} checkUser={checkUser} />}
       {user && cards.length !== 0 ? transitions.map(({ item, transitionStyle, key}) => {
         let cardKey
@@ -163,7 +165,7 @@ export default function App() {
                 cardKey={cardKey} 
                 transitionStyle={transitionStyle} 
                 cardClick={cardClick}/>
-        }) : <div>You have no more Cards...</div>}
+        }) : <div id="noMoreCardsMessage">You have no more Cards...</div>}
     </div>
   )
 };
