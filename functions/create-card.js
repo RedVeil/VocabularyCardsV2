@@ -11,11 +11,11 @@ exports.handler = async (event, context) => {
   /* parse the string body into a useable JS object */
   const data = JSON.parse(event.body)
   console.log('Function `create-card` invoked', data)
-  const todoItem = {
+  const cardItem = {
     data: data
   }
   /* construct the fauna query */
-  return client.query(q.Create(q.Ref('classes/cards'), todoItem))
+  return client.query(q.Create(q.Ref('classes/cards'), cardItem))
     .then((response) => {
       console.log('success', response)
       /* Success! return the response with statusCode 200 */
