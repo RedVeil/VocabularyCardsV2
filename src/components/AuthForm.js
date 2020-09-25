@@ -16,8 +16,6 @@ export default function AuthForm(props) {
   const onSubmit = (data) => {
     console.log(data)
     if (data.signup){
-      console.log("sign up user")
-      //Add user to db
       set(state => !state);
       setCorrect(state => !state);
       props.registerUser(data.name, data.email);

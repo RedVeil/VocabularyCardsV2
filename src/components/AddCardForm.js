@@ -15,7 +15,6 @@ export default function AddCardForm(props) {
   };
 
   const closeForm = () => {
-
     props.closeAddCardForm()
   }
     

@@ -1,7 +1,6 @@
 /* Api methods to call /functions */
 
 const create = (data) => {
-  console.log(`cardData ${data}`)
   return fetch('/.netlify/functions/create-card', {
     body: JSON.stringify(data),
     method: 'POST'
@@ -11,7 +10,6 @@ const create = (data) => {
 }
 
 const readAll = (userID) => {
-  console.log(userID)
   return fetch(`/.netlify/functions/read-all-cards/${userID}`,{
     method: 'POST',
   }).then((response) => {
@@ -28,7 +26,6 @@ const deleteCard = (cardId) => {
 }
 
 const createUser = (data) => {
-  console.log(`userData ${data}`)
   return fetch('/.netlify/functions/create-user', {
     body: JSON.stringify(data),
     method: 'POST'
@@ -38,7 +35,6 @@ const createUser = (data) => {
 }
 
 const getUser = (data) => {
-  console.log(`get user ${data.name} ${data.email}`)
   return fetch('/.netlify/functions/get-user',{
     body: JSON.stringify(data),
     method: 'POST'
