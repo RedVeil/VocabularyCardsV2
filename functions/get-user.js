@@ -12,15 +12,23 @@ exports.handler = (event, context) => {
   const data = JSON.parse(event.body);
   console.log(data)
   return client.query(
-    q.Paginate(q.Union(
-      q.Match(q.Index('user_by_email_and_name'), data.email),
-      q.Match(q.Index('user_by_email_and_name'), data.name)))) //q.Ref('indexes/all_cards')
+    q.Paginate(
+      q.Union(
+        q.Match(
+          q.Index('user_by_email_and_name'), data.email
+        ),
+        q.Match(
+          q.Index('user_by_email_and_name'), data.name
+        )
+      )
+    )
+  ) //q.Ref('indexes/all_cards')
     .then((response) => {
-      console.log('success', response)
+      console.log('success', response.data)
       /* Success! return the response with statusCode 200 */
       return {
         statusCode: 200,
-        body: JSON.stringify(1)
+        body: JSON.stringify(response.data)
       }
     })
     .catch((error) => {
