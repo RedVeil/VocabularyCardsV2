@@ -14,8 +14,8 @@ import './App.css';
 function removeOptimisticCards(cards) {
   return cards.filter((card) => {
     return card.ref
-  })
-}
+  });
+};
 
 export default function App() {
   useEffect(() => {
@@ -48,7 +48,7 @@ export default function App() {
     const newCard = {
       original: cardData[0],
       translation: cardData[1],
-      user_id: user_id
+      user_id: user
     };
     const optimisticNewCard = {
       data: newCard,
