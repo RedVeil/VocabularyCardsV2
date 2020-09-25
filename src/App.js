@@ -22,7 +22,7 @@ export default function App() {
     analytics.page()
     const userId = localStorage.getItem('userID');
     if(userId){
-      api.readAll().then((dbData) => {
+      api.readAll(userId).then((dbData) => {
         if (dbData.message === 'unauthorized') {
           return false
         }
@@ -136,7 +136,7 @@ export default function App() {
         return false
       }
       console.log('all User', data);
-      const db_user_id = data.data.user_id;
+      const db_user_id = data //.data.user_id;
       updateUser(db_user_id);
       localStorage.setItem("userID", db_user_id);
 

@@ -10,6 +10,7 @@ const create = (data) => {
 }
 
 const readAll = (userID) => {
+  console.log(userID)
   return fetch(`/.netlify/functions/read-all-cards/${userID}`,{
     method: 'POST',
   }).then((response) => {

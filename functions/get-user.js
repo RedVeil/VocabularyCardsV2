@@ -10,6 +10,7 @@ exports.handler = (event, context) => {
     secret: "fnAD2RsttSACB-rWArdacRo7dvrsYGglnhMvtOQn" //process.env.FAUNADB_SERVER_SECRET
   });
   const data = JSON.parse(event.body);
+  console.log(data)
   return client.query(
     q.Paginate(q.Union(
       q.Match(q.Index('user_by_email_and_name'), data.email),
