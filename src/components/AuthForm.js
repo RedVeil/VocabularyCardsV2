@@ -15,8 +15,8 @@ export default function AuthForm(props) {
 
   const onSubmit = (data) => {
     console.log(data)
-    if (data.register){
-      console.log("register user")
+    if (data.signup){
+      console.log("sign up user")
       //Add user to db
       set(state => !state);
       setCorrect(state => !state);
@@ -40,8 +40,8 @@ export default function AuthForm(props) {
           <form onSubmit={handleSubmit(onSubmit)}>
             <input className="textInput" name="name" ref={register({ required: true })} placeholder="An app needs a name..." />
             <input className="textInput" name="email" ref={register({ required: true })} placeholder="...and a mail" />
-            <label htmlFor="register" id="registerLabel">Register</label>
-            <input className="checkbox" type="checkbox" name="register"/>
+            <label htmlFor="signup" id="signupLabel">Sign Up</label>
+            <input className="checkbox" type="checkbox" name="signup" ref={register}/>
             <input id="submitButton" type="submit" value="Login"/>
           </form>
         </div>
