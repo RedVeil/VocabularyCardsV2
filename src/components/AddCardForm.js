@@ -9,15 +9,11 @@ export default function AddCardForm(props) {
     props.addCard([data.original.trim(), data.translation.trim()]);
     reset()
   };
-
-  const closeForm = () => {
-    props.closeAddCardForm()
-  }
     
   return (
     <div className="newCardContainer" style={props.style}>
       <div className="newCardForm">
-        <button id="hideFormButton" onClick={() => closeForm} ><X className="buttonIcon" color="darkgrey" /></button>
+        <button id="hideFormButton" onClick={() => props.closeAddCardForm()} ><X className="buttonIcon" color="darkgrey" /></button>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input className="textInput" name="original" ref={register({ required: true })} placeholder="Original"/>
           <input className="textInput" name="translation" ref={register({ required: true })} placeholder="Translation"/>
