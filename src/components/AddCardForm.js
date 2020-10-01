@@ -19,8 +19,8 @@ export default function AddCardForm(props) {
       <div className="newCardForm">
         <button id="hideFormButton" onClick={() => props.closeAddCardForm()} ><X className="buttonIcon" color="darkgrey" /></button>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input className="textInput" name="original" ref={register({ required: true })} placeholder="Original" value="test"/>
-          <input className="textInput" name="translation" ref={register({ required: true })} placeholder="Translation" value=""/>
+          <input className="textInput" name="original" ref={register({ required: true })} placeholder="Original" defaultValue="test"/>
+          <input className="textInput" name="translation" ref={register({ required: true })} placeholder="Translation" defaultValue=""/>
           <input id="submitButton" type="submit" value="Send"/>
         </form>
         </div>
