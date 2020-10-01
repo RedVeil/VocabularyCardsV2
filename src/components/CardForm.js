@@ -16,8 +16,6 @@ export default function CardForm(props) {
     add(true);
     setTimeout(() => {add(false)}, 1000);
   };
-  
-  console.log(props.original)
   console.log(props.index)
   return (
     <div className="newCardContainer" style={props.style}>
@@ -30,7 +28,7 @@ export default function CardForm(props) {
           <input id="submitButton" type="submit" value="Send"/>
         </form>
         {props.original && 
-        <button onClick={() => props.deleteCard(props.index)}>
+        <button className="formButton add"onClick={() => props.deleteCard(props.index)}>
           <Trash className="buttonIcon" color="white" />
         </button>}
         </div>

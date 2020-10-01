@@ -80,7 +80,10 @@ export default function App() {
       translation: cardData[1],
       user_id: user
     };
+    console.log(`key: ${cardKey}`)
+    console.log(`updatedCard: ${updatedCard}`)
     updateCards([...cards.splice(index,1), updatedCard]);
+    console.log(`cards state: ${cards}`)
     api.update(cardKey, updatedCard).then((response) => {
       console.log(response)
     }).catch((e) => {
