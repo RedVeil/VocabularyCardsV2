@@ -84,7 +84,8 @@ export default function App() {
     console.log(`updatedCard: ${updatedCard}`)
     let clonedCards = [...cards]
     clonedCards.splice(index,1,updatedCard)
-    updateCards(clonedCards);
+    console.log(clonedCards)
+    //updateCards(cards);
     console.log(`cards state: ${cards}`)
     api.update(cardKey, updatedCard).then((response) => {
       console.log(response)
