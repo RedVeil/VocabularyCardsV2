@@ -16,7 +16,9 @@ export default function CardForm(props) {
     add(true);
     setTimeout(() => {add(false)}, 1000);
   };
-    
+  
+  console.log(props.original)
+
   return (
     <div className="newCardContainer" style={props.style}>
       {added && !props.original ? <div className="alert">added</div> : ""}

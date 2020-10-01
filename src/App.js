@@ -180,10 +180,11 @@ export default function App() {
     });
   };
 
-  const showHideForm = (index=false) => {
+  const showHideForm = (cardIndex=false) => {
     changeVisibility(!formVisibility);
-    if(index){
-      setCardContent({original: cards[index].data.original, translation: cards[index].data.translation, index:index})
+    if(cardIndex){
+      console.log(cardIndex)
+      setCardContent({original: cards[cardIndex].data.original, translation: cards[cardIndex].data.translation, index:cardIndex})
     } else {
       setCardContent(false)
     };
