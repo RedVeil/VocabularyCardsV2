@@ -35,7 +35,7 @@ export default function AuthForm(props) {
                                 opacity: opacity.interpolate(o => 1 - o), 
                                 transform, 
                                 background: flipped && correct ? "lightgreen" : "rgb(252, 251, 245)"}}>
-        {flipped && !correct ? <div id="errorMessage">I couldnt find you</div> : ""}
+        {flipped && !correct ? <div className="alert error">I couldnt find you</div> : ""}
         <div className="translationForm">
           <form onSubmit={handleSubmit(onSubmit)}>
             <input className="textInput" name="name" ref={register({ required: true })} placeholder="An app needs a name..." />

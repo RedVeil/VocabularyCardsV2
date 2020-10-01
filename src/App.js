@@ -32,7 +32,7 @@ export default function App() {
       })
     }
   }, []);
-  const [user, updateUser] = useState(false);
+  const [user, updateUser] = useState(true);
   const [cards, updateCards] = useState([]);
   const [index, set] = useState(0);
   const [formVisibility, changeVisibility] = useState(false);
@@ -149,7 +149,7 @@ export default function App() {
   return (
     <div className="App">
       <AddCardForm addCard={addCard} closeAddCardForm={showHideForm} style={{ visibility: formVisibility ? "visible" : "hidden" }} />
-      <button id="showFormButton" onClick={showHideForm} style={{visibility: user ? "visible" : "hidden"}}>
+      <button id="showFormButton" onClick={showHideForm} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
         <Plus className="buttonIcon" color="white" />
       </button>
       {!user && <Authform registerUser={registerUser} checkUser={checkUser} />}
