@@ -180,12 +180,11 @@ export default function App() {
     });
   };
 
-  const showHideForm = (cardIndex=false) => {
+  const showHideForm = (edit) => {
     changeVisibility(!formVisibility);
-    console.log(cardIndex)
-    if(cardIndex){
-      console.log(cardIndex)
-      setCardContent({original: cards[cardIndex].data.original, translation: cards[cardIndex].data.translation, index:cardIndex})
+    console.log(`showHide ${edit}`)
+    if(edit){
+      setCardContent({original: cards[index].data.original, translation: cards[index].data.translation})
     } else {
       setCardContent(false)
     };
@@ -203,10 +202,10 @@ export default function App() {
         translation={cardContent.translation} 
         style={{ visibility: formVisibility ? "visible" : "hidden" }} 
         />
-      <button className="formButton add" onClick={showHideForm} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
+      <button className="formButton add" onClick={() => showHideForm(false)} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
         <Plus className="buttonIcon" color="white" />
       </button>
-      <button className="formButton edit" onClick={() => showHideForm(index)} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
+      <button className="formButton edit" onClick={() => showHideForm(true)} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
         <Edit2 className="buttonIcon" color="white" />
       </button>
       {!user && <Authform registerUser={registerUser} checkUser={checkUser} />}
