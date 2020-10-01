@@ -82,7 +82,7 @@ export default function App() {
     };
     console.log(`key: ${cardKey}`)
     console.log(`updatedCard: ${updatedCard}`)
-    updateCards([...cards.splice(index,1), updatedCard]);
+    updateCards([cards.splice(index,1,updatedCard)]);
     console.log(`cards state: ${cards}`)
     api.update(cardKey, updatedCard).then((response) => {
       console.log(response)
