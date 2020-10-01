@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTransition } from 'react-spring';
-import { Edit2 } from 'react-feather'; //Plus, 
+import { Plus,  Edit2 } from 'react-feather'; 
 import { v4 as uuidv4 } from 'uuid';
 import analytics from './utils/analytics';
 import api from './utils/api';
