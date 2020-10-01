@@ -22,7 +22,7 @@ export default function CardForm(props) {
     <div className="newCardContainer" style={props.style}>
       {added && !props.original ? <div className="alert">added</div> : ""}
       <div className="newCardForm">
-        <button id="hideFormButton" onClick={() => props.closeCardForm()} ><X className="buttonIcon" color="darkgrey" /></button>
+        <button id="hideFormButton" onClick={() => props.closeCardForm(false)} ><X className="buttonIcon" color="darkgrey" /></button>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input className="textInput" name="original" ref={register({ required: true })} placeholder="Original" defaultValue={props.original}/>
           <input className="textInput" name="translation" ref={register({ required: true })} placeholder="Translation" defaultValue={props.translation}/>
