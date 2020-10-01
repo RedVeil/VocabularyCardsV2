@@ -115,10 +115,9 @@ body,
   outline: none;
 }
 
-#showFormButton{
-  position: absolute;
+.formButton{
   top:80vh;
-  left:65vw;
+  position: absolute;
   z-index: 2;
   background: #ed2553;
   width: 50px;
@@ -130,8 +129,16 @@ body,
   outline: none;
 }
 
-#showFormButton:hover{
+.formButton:hover{
   background: lightcoral;
+}
+
+.add{
+  left:65vw;
+}
+
+.edit{
+  left:20vw;
 }
 
 #hideFormButton{

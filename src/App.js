@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTransition } from 'react-spring';
-import { Plus } from 'react-feather';
+import { Edit2 } from 'react-feather'; //Plus, 
 import { v4 as uuidv4 } from 'uuid';
 import analytics from './utils/analytics';
 import api from './utils/api';
 import Card from "./components/Card";
-import AddCardForm from "./components/AddCardForm";
+import CardForm from "./components/CardForm";
 import Authform from "./components/AuthForm";
 import './App.css';
 
@@ -36,6 +36,7 @@ export default function App() {
   const [cards, updateCards] = useState([]);
   const [index, set] = useState(0);
   const [formVisibility, changeVisibility] = useState(false);
+  const [cardContent, setCardContent] = useState(false);
   const nextCard = useCallback(() => set(state => state + 1), []);
 
   const transitions = useTransition(index, p => p, {
@@ -70,6 +71,43 @@ export default function App() {
       const revertedState = removeOptimisticCards(cards)
       updateCards(revertedState);
     })
+  };
+
+  const updateCard = (cardData) => {
+    const cardKey = cards[index].ref['@ref'].id;
+    const updatedCard = {
+      original: cardData[0],
+      translation: cardData[1],
+      user_id: user
+    };
+    updateCards([...cards.splice(index,1), updatedCard]);
+    api.update(cardKey, updatedCard).then((response) => {
+      console.log(response)
+    }).catch((e) => {
+      console.log('An API error occurred', e);
+    })
+  };
+
+  const deleteCard = (cardIndex) => {
+    const cardKey = cards[cardIndex].ref['@ref'].id
+    api.delete(cardKey).then(() => {
+      console.log(`deleted todo id ${cardKey}`)
+      /*analytics.track('todoDeleted', {
+        category: 'cards',
+      })*/
+    }).catch((e) => {
+      console.log(`There was an error removing ${cardKey}`, e)
+    })
+    if (index === cards.length - 1) {
+      api.readAll().then((dbData) => {
+        if (dbData.message === 'unauthorized') {
+          return false
+        }
+        updateCards(dbData);
+      }).then(set(0));
+    } else {
+      nextCard();
+    }
   };
 
   const cardClick = (correct, cardKey) => {
@@ -142,15 +180,32 @@ export default function App() {
     });
   };
 
-  const showHideForm = () => {
+  const showHideForm = (index=false) => {
     changeVisibility(!formVisibility);
+    if(index){
+      setCardContent({original: cards[index].data.original, translation: cards[index].data.translation, index:index})
+    } else {
+      setCardContent(false)
+    };
   };
 
   return (
     <div className="App">
-      <AddCardForm addCard={addCard} closeAddCardForm={showHideForm} style={{ visibility: formVisibility ? "visible" : "hidden" }} />
-      <button id="showFormButton" onClick={showHideForm} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
+      <CardForm 
+        closeCardForm={showHideForm}
+        addCard={addCard} 
+        deleteCard={deleteCard}
+        updateCard={updateCard}
+        index={index}
+        original={cardContent.original} 
+        translation={cardContent.translation} 
+        style={{ visibility: formVisibility ? "visible" : "hidden" }} 
+        />
+      <button className="formButton add" onClick={showHideForm} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
         <Plus className="buttonIcon" color="white" />
+      </button>
+      <button className="formButton edit" onClick={() => showHideForm(index)} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
+        <Edit2 className="buttonIcon" color="white" />
       </button>
       {!user && <Authform registerUser={registerUser} checkUser={checkUser} />}
       {user && cards.length !== 0 ? transitions.map(({ item, transitionStyle, key}) => {
