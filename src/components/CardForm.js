@@ -18,7 +18,7 @@ export default function CardForm(props) {
   };
   
   console.log(props.original)
-
+  console.log(props.index)
   return (
     <div className="newCardContainer" style={props.style}>
       {added && !props.original ? <div className="alert">added</div> : ""}

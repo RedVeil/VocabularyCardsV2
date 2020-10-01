@@ -182,6 +182,7 @@ export default function App() {
 
   const showHideForm = (cardIndex=false) => {
     changeVisibility(!formVisibility);
+    console.log(cardIndex)
     if(cardIndex){
       console.log(cardIndex)
       setCardContent({original: cards[cardIndex].data.original, translation: cards[cardIndex].data.translation, index:cardIndex})
