@@ -44,7 +44,7 @@ const getUser = (data) => {
 }
 
 const update = (cardId, data) => {
-  console.log(`ID: ${cardID} data: ${data.original}`)
+  console.log(`ID: ${cardId} data: ${data.original}`)
   return fetch(`/.netlify/functions/update-card/${cardId}`, {
     body: JSON.stringify(data),
     method: 'POST'

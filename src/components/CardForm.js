@@ -8,6 +8,7 @@ export default function CardForm(props) {
 
   const onSubmit = (data) => {
     if(props.original){
+      console.log("updating")
       props.updateCard([data.original.trim(), data.translation.trim()])
     } else {
       props.addCard([data.original.trim(), data.translation.trim()]);
