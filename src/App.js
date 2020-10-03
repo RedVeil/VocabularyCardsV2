@@ -87,8 +87,7 @@ export default function App() {
     console.log(clonedCards)
     //updateCards(cards);
     console.log(`cards state: ${cards}`)
-    api.update(cardKey, updatedCard).then((response) => {
-      console.log(response)
+    api.update(cardKey, updatedCard).then(() => {
     }).catch((e) => {
       console.log('An API error occurred', e);
     })
