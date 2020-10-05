@@ -64,14 +64,7 @@ export default function App() {
       ts: new Date().getTime() * 10000
     };
     updateCards([...cards, optimisticNewCard]);
-
     api.create(newCard).then((response) => {
-      /* Track a custom event */
-      /*analytics.track('cardsCreated', {
-        category: 'cards',
-        label: newCard,
-      })
-      */
       const persistedState = removeOptimisticCards(cards).concat(response)
       updateCards(persistedState);
     }).catch((e) => {
@@ -82,18 +75,15 @@ export default function App() {
   };
 
   const updateCard = (cardData) => {
-    deleteCard();
+    const cardKey = cards[index].ref['@ref'].id;
+    deleteCard(cardKey);
     addCard(cardData);
     console.log(cards)
   };
 
-  const deleteCard = () => {
-    const cardKey = cards[index].ref['@ref'].id
+  const deleteCard = (cardKey) => {
     api.delete(cardKey).then(() => {
       console.log(`deleted todo id ${cardKey}`)
-      /*analytics.track('todoDeleted', {
-        category: 'cards',
-      })*/
     }).catch((e) => {
       console.log(`There was an error removing ${cardKey}`, e)
     })
@@ -109,26 +99,10 @@ export default function App() {
     }
   };
 
-  const cardClick = (correct, cardKey) => {
+  const cardClick = (correct) => {
+    const cardKey = cards[index].ref['@ref'].id;
     if (correct && cardKey) {
-      api.delete(cardKey).then(() => {
-        console.log(`deleted todo id ${cardKey}`)
-        /*analytics.track('todoDeleted', {
-          category: 'cards',
-        })*/
-      }).catch((e) => {
-        console.log(`There was an error removing ${cardKey}`, e)
-      })
-    };
-    if (index === cards.length - 1) {
-      api.readAll().then((dbData) => {
-        if (dbData.message === 'unauthorized') {
-          return false
-        }
-        updateCards(dbData);
-      }).then(set(0));
-    } else {
-      nextCard();
+      deleteCard(cardKey);
     }
   };
 
@@ -140,13 +114,6 @@ export default function App() {
       user_id: user_id
     };
     api.createUser(newUser).then((response) => {
-      console.log(response)
-      /* Track a custom event */
-      /*analytics.track('cardsCreated', {
-        category: 'cards',
-        label: newCard,
-      })
-      */
       localStorage.setItem('user_id', user_id);
       updateUser(user_id);
     }).catch((e) => {
@@ -181,7 +148,6 @@ export default function App() {
 
   const showHideForm = (edit) => {
     changeVisibility(!formVisibility);
-    console.log(`showHide ${edit}`)
     if(edit){
       setCardContent({original: cards[index].data.original, translation: cards[index].data.translation})
     } else {
@@ -200,23 +166,26 @@ export default function App() {
         translation={cardContent.translation} 
         style={{ visibility: formVisibility ? "visible" : "hidden" }} 
         />
-      <button className="formButton add" onClick={() => showHideForm(false)} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
+      <button 
+        className="formButton add" 
+        onClick={() => showHideForm(false)} 
+        style={{visibility: user && !formVisibility ? "visible" : "hidden"}}
+      >
         <Plus className="buttonIcon" color="white" />
       </button>
-      <button className="formButton edit" onClick={() => showHideForm(true)} style={{visibility: user && !formVisibility ? "visible" : "hidden"}}>
+      <button 
+        className="formButton edit" 
+        onClick={() => showHideForm(true)} 
+        style={{visibility: user && !formVisibility ? "visible" : "hidden"}}
+      >
         <Edit2 className="buttonIcon" color="white" />
       </button>
       {!user && <Authform registerUser={registerUser} checkUser={checkUser} />}
       {user && cards.length !== 0 ? transitions.map(({ item, transitionStyle, key}) => {
-        let cardKey
-        if(cards[item].ref !== undefined){
-          cardKey = cards[item].ref['@ref'].id;
-        } else { cardKey = null };
         return <Card 
                 key={key} 
                 front={cards[item].data.original} 
                 back={cards[item].data.translation} 
-                cardKey={cardKey} 
                 transitionStyle={transitionStyle} 
                 cardClick={cardClick}/>
         }) : <div id="noMoreCardsMessage">You have no more Cards...</div>}

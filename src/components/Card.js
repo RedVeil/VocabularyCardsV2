@@ -21,7 +21,7 @@ export default function Card(props) {
 
   const backClick = () => {
     if(flipped){
-      props.cardClick(correct, props.cardKey)
+      props.cardClick(correct)
     }
   };
     
@@ -30,15 +30,26 @@ export default function Card(props) {
       {!flipped && 
       <div className="translationForm">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input className="textInput" name="inputTranslation" ref={register({ required: true })} onTouched={window.scrollTo(0,0)} placeholder="Translation..."/>
+          <input 
+            className="textInput" 
+            name="inputTranslation" 
+            ref={register({ required: true })} 
+            onTouched={window.scrollTo(0,0)} 
+            placeholder="Translation..."
+          />
         </form>
         </div>}
     <a.div onClick={backClick} style={props.transitionStyle}>
-      <a.div className="c front" style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) }}>
+      <a.div 
+        className="c front" 
+        style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) }}
+      >
         <p className="text">{props.front}</p>
-        
       </a.div>
-      <a.div className="c back" style={{ background: correct ? "lightgreen" : "lightcoral", opacity: opacity.interpolate(o => 1 - o), transform }}>
+      <a.div 
+        className="c back" 
+        style={{ background: correct ? "lightgreen" : "lightcoral", opacity: opacity.interpolate(o => 1 - o), transform }}
+      >
         <p className="text">{props.back}</p>
       </a.div>
     </a.div>

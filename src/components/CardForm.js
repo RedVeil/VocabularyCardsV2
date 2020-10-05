@@ -31,12 +31,35 @@ export default function CardForm(props) {
         <button className="formButton edit" onClick={handleDelete}>
           <Trash className="buttonIcon" color="white" />
       </button>}
-      <button className="formButton add" type="submit" form="updateCardForm"><Plus className="buttonIcon" color="white" /></button>
+      <button 
+        className="formButton add" 
+        type="submit" 
+        form="updateCardForm">
+          <Plus className="buttonIcon" color="white" />
+      </button>
       <div className="CardForm">
-        <button id="hideFormButton" onClick={() => props.closeCardForm(false)} ><X className="buttonIcon" color="darkgrey" /></button>
+        <button 
+          id="hideFormButton" 
+          onClick={() => props.closeCardForm(false)} >
+            <X className="buttonIcon" color="darkgrey" />
+        </button>
         <form id="updateCardForm" onSubmit={handleSubmit(onSubmit)}>
-          <input className="textInput" name="original" ref={register({ required: true })} placeholder="Original" defaultValue={props.original}/>
-          <input className="textInput" name="translation" ref={register({ required: true })} placeholder="Translation" defaultValue={props.translation}/>
+          <input 
+            className="textInput" 
+            name="original" 
+            ref={register({ required: true })} 
+            placeholder="Original" 
+            defaultValue={props.original}
+            onTouched={window.scrollTo(0,0)}
+            />
+          <input 
+            className="textInput" 
+            name="translation" 
+            ref={register({ required: true })} 
+            placeholder="Translation" 
+            defaultValue={props.translation}
+            onTouched={window.scrollTo(0,0)}
+            />
         </form>
         </div>
     </div>
