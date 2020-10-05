@@ -103,7 +103,7 @@ export default function App() {
     const cardKey = cards[index].ref['@ref'].id;
     if (correct && cardKey) {
       deleteCard(cardKey);
-    }
+    } else { nextCard() }
   };
 
   const registerUser = (name, email) => {
