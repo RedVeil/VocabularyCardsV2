@@ -25,7 +25,7 @@ export default function CardForm(props) {
 
 
   return (
-    <div className="CardFormContainer" style={props.style}>
+    <div className="c CardFormContainer" style={props.style}>
       {added && <div className="alert">added</div>}
       {props.original && 
         <button className="formButton edit" onClick={handleDelete}>

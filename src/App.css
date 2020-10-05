@@ -63,14 +63,6 @@ body,
 .CardFormContainer{
   z-index: 2;
   margin: 0;
-  position: absolute;
-  top: 5vh;
-  left: 5vw;
-  width: 90vw;
-  height:90vh;
-  background: rgb(252, 251, 245);
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
 }
 
 .CardForm{
