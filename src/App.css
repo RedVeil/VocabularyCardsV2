@@ -32,10 +32,11 @@ body,
 
 .c {
   position: absolute;
-  top: 5vh;
+  top: 1vh;
   left: 5vw;
   width: 90vw;
   height: 90vh;
+  height: calc(var(--vh, 1vh) * 90);
   cursor: pointer;
   will-change: transform, opacity;
   border-radius: 20px;

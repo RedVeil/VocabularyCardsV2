@@ -11,11 +11,16 @@ import './App.css';
 
 
 
-function removeOptimisticCards(cards) {
+function removeOptimisticCards(cards){
   return cards.filter((card) => {
     return card.ref
   });
 };
+
+function handleResize(){
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`)
+}
 
 export default function App() {
   useEffect(() => {
@@ -30,7 +35,9 @@ export default function App() {
         updateUser(user_id);
         updateCards(data);
       })
-    }
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
   }, []);
   const [user, updateUser] = useState(false);
   const [cards, updateCards] = useState([]);
@@ -44,7 +51,7 @@ export default function App() {
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
     leave: { opacity: 0, transform: 'translate3d(-50%,0,0)' },
   });
-
+  
   const addCard = (cardData) => {
     const newCard = {
       original: cardData[0],
