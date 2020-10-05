@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { X, Plus, Trash } from 'react-feather';
+import { X, Trash } from 'react-feather'; //Plus
 import { useForm } from "react-hook-form";
 
 export default function CardForm(props) {
