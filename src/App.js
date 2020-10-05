@@ -92,13 +92,10 @@ export default function App() {
       data: updatedCard,
       ts: new Date().getTime() * 10000
     };
-    console.log(`key: ${cardKey}`)
-    console.log(`updatedCard: ${optimisticUpdatedCard}`)
-    let clonedCards = [...cards]
-    clonedCards.splice(index,1,optimisticUpdatedCard)
-    console.log(clonedCards[index])
+    clonedCards.slice(index,1)
+    updateCards([...cards, optimisticUpdatedCard]);
     //updateCards(cards);
-    console.log(`cards state: ${cards}`)
+    console.log(cards)
     api.update(cardKey, updatedCard).then(() => {
     }).catch((e) => {
       console.log('An API error occurred', e);
