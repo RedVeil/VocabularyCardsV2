@@ -19,6 +19,7 @@ function removeOptimisticCards(cards){
 
 function handleResize(){
   let vh = window.innerHeight * 0.01;
+  console.log(`vh ${vh}px`)
   document.documentElement.style.setProperty('--vh', `${vh}px`)
 }
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { X, Trash } from 'react-feather';
+import { X, Plus, Trash } from 'react-feather';
 import { useForm } from "react-hook-form";
 
 export default function CardForm(props) {
@@ -19,19 +19,19 @@ export default function CardForm(props) {
   };
   console.log(props.index)
   return (
-    <div className="newCardContainer" style={props.style}>
+    <div className="CardFormContainer" style={props.style}>
       {added && !props.original ? <div className="alert">added</div> : ""}
-      <div className="newCardForm">
+      {props.original && 
+        <button className="formButton edit" onClick={() => props.deleteCard(props.index)}>
+          <Trash className="buttonIcon" color="white" />
+      </button>}
+      <div className="CardForm">
         <button id="hideFormButton" onClick={() => props.closeCardForm(false)} ><X className="buttonIcon" color="darkgrey" /></button>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input className="textInput" name="original" ref={register({ required: true })} placeholder="Original" defaultValue={props.original}/>
           <input className="textInput" name="translation" ref={register({ required: true })} placeholder="Translation" defaultValue={props.translation}/>
-          <input id="submitButton" type="submit" value="Send"/>
+          <input className="formButton add" type="submit"><Plus className="buttonIcon" color="white" /></input>
         </form>
-        {props.original && 
-        <button className="formButton add"onClick={() => props.deleteCard(props.index)}>
-          <Trash className="buttonIcon" color="white" />
-        </button>}
         </div>
     </div>
   )

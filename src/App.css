@@ -58,7 +58,7 @@ body,
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
 }
 
-.newCardContainer{
+.CardFormContainer{
   z-index: 2;
   margin: 0;
   position: absolute;
@@ -71,7 +71,7 @@ body,
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
 }
 
-.newCardForm{
+.CardForm{
   position: absolute;
   display: inline;
   z-index: 2;
@@ -80,12 +80,12 @@ body,
   text-align: center; 
 }
 
-.newCardForm form{
+.CardForm form{
   position: relative; 
   left: -50%;
 }
 
-.newCardForm .textInput{
+.CardForm .textInput{
   background:rgb(252, 251, 245);
 }
 
