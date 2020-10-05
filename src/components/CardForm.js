@@ -19,7 +19,7 @@ export default function CardForm(props) {
   };
 
   const handleDelete = () => {
-    props.deleteCard(props.index)
+    props.deleteCard()
     props.closeCardForm(false)
   }
 

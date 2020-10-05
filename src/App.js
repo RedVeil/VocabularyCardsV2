@@ -82,29 +82,13 @@ export default function App() {
   };
 
   const updateCard = (cardData) => {
-    const cardKey = cards[index].ref['@ref'].id;
-    const updatedCard = {
-      original: cardData[0],
-      translation: cardData[1],
-      user_id: user
-    };
-    const optimisticUpdatedCard = {
-      data: updatedCard,
-      ts: new Date().getTime() * 10000
-    };
-    let clonedCards = [...cards]
-    clonedCards.slice(index,1)
-    updateCards([...clonedCards, optimisticUpdatedCard]);
-    //updateCards(cards);
+    deleteCard();
+    addCard(cardData);
     console.log(cards)
-    api.update(cardKey, updatedCard).then(() => {
-    }).catch((e) => {
-      console.log('An API error occurred', e);
-    })
   };
 
-  const deleteCard = (cardIndex) => {
-    const cardKey = cards[cardIndex].ref['@ref'].id
+  const deleteCard = () => {
+    const cardKey = cards[index].ref['@ref'].id
     api.delete(cardKey).then(() => {
       console.log(`deleted todo id ${cardKey}`)
       /*analytics.track('todoDeleted', {
@@ -212,7 +196,6 @@ export default function App() {
         addCard={addCard} 
         deleteCard={deleteCard}
         updateCard={updateCard}
-        index={index}
         original={cardContent.original} 
         translation={cardContent.translation} 
         style={{ visibility: formVisibility ? "visible" : "hidden" }} 
