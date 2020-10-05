@@ -136,6 +136,10 @@ body,
   left:20vw;
 }
 
+.edit{
+  left:40vw;
+}
+
 #hideFormButton{
   width: 50px;
   height: 50px;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSpring, animated as a } from 'react-spring'
+import { LogIn } from 'react-feather';
 import { useForm } from "react-hook-form";
 
 
@@ -38,8 +39,15 @@ export default function AuthForm(props) {
                 background: flipped && correct ? "lightgreen" : "rgb(252, 251, 245)"}}
       >
         {flipped && !correct ? <div className="alert error">I couldnt find you</div> : ""}
+        <button 
+          className="formButton login" 
+          type="submit" 
+          form="loginForm"
+        >
+          <LogIn className="buttonIcon" color="white" />
+      </button>
         <div className="translationForm">
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form id="loginForm" onSubmit={handleSubmit(onSubmit)}>
             <input 
               className="textInput" 
               name="name" 
@@ -63,7 +71,6 @@ export default function AuthForm(props) {
               <span className="checkbox-custom"/>
               Sign Up
             </label>
-            <input id="submitButton" type="submit" value="Login"/>
           </form>
         </div>
       </a.div>
