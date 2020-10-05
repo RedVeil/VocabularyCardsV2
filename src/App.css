@@ -89,7 +89,7 @@ body,
   display: inline;
   z-index: 1;
   top: 35%;
-  top: calc(var(--vh, 1vh) * 35);
+  top: calc(var(--vh, 1vh) * 15);
   left:50%;
   text-align: center; 
 }
