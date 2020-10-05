@@ -30,9 +30,11 @@ export default function CardForm(props) {
         <form onSubmit={handleSubmit(onSubmit)}>
           <input className="textInput" name="original" ref={register({ required: true })} placeholder="Original" defaultValue={props.original}/>
           <input className="textInput" name="translation" ref={register({ required: true })} placeholder="Translation" defaultValue={props.translation}/>
-          <input className="formButton add" type="submit"><Plus className="buttonIcon" color="white" /></input>
+          <input className="formButton add" type="submit"></input>
         </form>
         </div>
     </div>
   )
 };
+
+//<Plus className="buttonIcon" color="white" />
