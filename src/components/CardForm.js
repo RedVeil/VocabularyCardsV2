@@ -25,7 +25,7 @@ export default function CardForm(props) {
         <button className="formButton edit" onClick={() => props.deleteCard(props.index)}>
           <Trash className="buttonIcon" color="white" />
       </button>}
-      <button className="formButton add" type="submit" form="hook-form"><Plus className="buttonIcon" color="white" /></button>
+      <button className="formButton add" type="submit" form="updateCardForm"><Plus className="buttonIcon" color="white" /></button>
       <div className="CardForm">
         <button id="hideFormButton" onClick={() => props.closeCardForm(false)} ><X className="buttonIcon" color="darkgrey" /></button>
         <form id="updateCardForm" onSubmit={handleSubmit(onSubmit)}>
