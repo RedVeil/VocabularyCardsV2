@@ -112,6 +112,7 @@ body,
 
 .formButton{
   top:80vh;
+  top: calc(var(--vh, 1vh) * 80);
   position: absolute;
   z-index: 2;
   background: #ed2553;
