@@ -92,8 +92,9 @@ export default function App() {
       data: updatedCard,
       ts: new Date().getTime() * 10000
     };
+    let clonedCards = [...cards]
     clonedCards.slice(index,1)
-    updateCards([...cards, optimisticUpdatedCard]);
+    updateCards([...clonedCards, optimisticUpdatedCard]);
     //updateCards(cards);
     console.log(cards)
     api.update(cardKey, updatedCard).then(() => {
