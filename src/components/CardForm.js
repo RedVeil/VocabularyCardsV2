@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { X, Plus, Trash } from 'react-feather'; //
+import { X, Plus, Trash } from 'react-feather';
 import { useForm } from "react-hook-form";
 
 export default function CardForm(props) {
@@ -8,19 +8,19 @@ export default function CardForm(props) {
 
   const onSubmit = (data) => {
     if(props.original){
-      console.log("updating")
       props.updateCard([data.original.trim(), data.translation.trim()])
+      props.closeCardForm(false)
     } else {
       props.addCard([data.original.trim(), data.translation.trim()]);
+      add(true);
+      setTimeout(() => {add(false)}, 1000);
       reset();
     }
-    add(true);
-    setTimeout(() => {add(false)}, 1000);
   };
-  console.log(props.index)
+
   return (
     <div className="CardFormContainer" style={props.style}>
-      {added && !props.original ? <div className="alert">added</div> : ""}
+      {added && <div className="alert">added</div>}
       {props.original && 
         <button className="formButton edit" onClick={() => props.deleteCard(props.index)}>
           <Trash className="buttonIcon" color="white" />
@@ -32,7 +32,6 @@ export default function CardForm(props) {
           <input className="textInput" name="original" ref={register({ required: true })} placeholder="Original" defaultValue={props.original}/>
           <input className="textInput" name="translation" ref={register({ required: true })} placeholder="Translation" defaultValue={props.translation}/>
         </form>
-        
         </div>
     </div>
   )
