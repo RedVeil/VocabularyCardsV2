@@ -116,8 +116,8 @@ body,
   position: absolute;
   z-index: 2;
   background: #ed2553;
-  width: 50px;
-  height: 50px;
+  width: 15vw;
+  height: 15vw;
   border: none;
   border-radius: 100%;
   cursor: pointer;
@@ -142,8 +142,8 @@ body,
 }
 
 #hideFormButton{
-  width: 50px;
-  height: 50px;
+  width: 15vw;
+  height: 15vw;
   border-radius: 100%;
   background:none;
   border:none;
