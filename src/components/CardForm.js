@@ -12,8 +12,8 @@ export default function CardForm(props) {
       props.updateCard([data.original.trim(), data.translation.trim()])
     } else {
       props.addCard([data.original.trim(), data.translation.trim()]);
+      reset();
     }
-    reset();
     add(true);
     setTimeout(() => {add(false)}, 1000);
   };

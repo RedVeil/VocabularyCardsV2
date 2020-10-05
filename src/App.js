@@ -32,7 +32,7 @@ export default function App() {
       })
     }
   }, []);
-  const [user, updateUser] = useState(true);
+  const [user, updateUser] = useState(false);
   const [cards, updateCards] = useState([]);
   const [index, set] = useState(0);
   const [formVisibility, changeVisibility] = useState(false);
