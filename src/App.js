@@ -93,9 +93,9 @@ export default function App() {
       ts: new Date().getTime() * 10000
     };
     console.log(`key: ${cardKey}`)
-    console.log(`updatedCard: ${updatedCard}`)
+    console.log(`updatedCard: ${optimisticUpdatedCard}`)
     let clonedCards = [...cards]
-    clonedCards.splice(index,1,updatedCard)
+    clonedCards.splice(index,1,optimisticUpdatedCard)
     console.log(clonedCards[index])
     //updateCards(cards);
     console.log(`cards state: ${cards}`)
