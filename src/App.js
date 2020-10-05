@@ -88,11 +88,15 @@ export default function App() {
       translation: cardData[1],
       user_id: user
     };
+    const optimisticUpdatedCard = {
+      data: updatedCard,
+      ts: new Date().getTime() * 10000
+    };
     console.log(`key: ${cardKey}`)
     console.log(`updatedCard: ${updatedCard}`)
     let clonedCards = [...cards]
     clonedCards.splice(index,1,updatedCard)
-    console.log(clonedCards)
+    console.log(clonedCards[index])
     //updateCards(cards);
     console.log(`cards state: ${cards}`)
     api.update(cardKey, updatedCard).then(() => {

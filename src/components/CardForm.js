@@ -18,11 +18,17 @@ export default function CardForm(props) {
     }
   };
 
+  const handleDelete = () => {
+    props.deleteCard(props.index)
+    props.closeCardForm(false)
+  }
+
+
   return (
     <div className="CardFormContainer" style={props.style}>
       {added && <div className="alert">added</div>}
       {props.original && 
-        <button className="formButton edit" onClick={() => props.deleteCard(props.index)}>
+        <button className="formButton edit" onClick={handleDelete}>
           <Trash className="buttonIcon" color="white" />
       </button>}
       <button className="formButton add" type="submit" form="updateCardForm"><Plus className="buttonIcon" color="white" /></button>
@@ -36,5 +42,3 @@ export default function CardForm(props) {
     </div>
   )
 };
-
-//

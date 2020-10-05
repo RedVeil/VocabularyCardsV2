@@ -36,7 +36,7 @@ body,
   left: 5vw;
   width: 90vw;
   height: 90vh;
-  height: calc(var(--vh, 1vh) * 90);
+  height: calc(var(--vh, 1vh) * 98);
   cursor: pointer;
   will-change: transform, opacity;
   border-radius: 20px;
