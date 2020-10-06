@@ -51,6 +51,7 @@ export default function CardForm(props) {
             placeholder="Original" 
             defaultValue={props.original}
             onTouched={window.scrollTo(0,0)}
+            autoComplete="off"
             />
           <input 
             className="textInput" 
@@ -59,6 +60,7 @@ export default function CardForm(props) {
             placeholder="Translation" 
             defaultValue={props.translation}
             onTouched={window.scrollTo(0,0)}
+            autoComplete="off"
             />
         </form>
         </div>
