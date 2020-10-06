@@ -10,6 +10,10 @@ import Authform from "./components/AuthForm";
 import './App.css';
 
 
+function reloadAllCards(){
+  location.window.reload();
+};
+
 
 function createTranslation(cardData) {
   return cardData.split(",").map(item => item.trim())
@@ -76,10 +80,6 @@ export default function App() {
       const revertedState = removeOptimisticCards(cards)
       updateCards(revertedState);
     })
-  };
-
-  const reloadAllCards = () => {
-    location.reload();
   };
 
   const updateCard = (cardData) => {
