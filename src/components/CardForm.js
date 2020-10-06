@@ -37,12 +37,12 @@ export default function CardForm(props) {
         form="updateCardForm">
           <Plus className="buttonIcon" color="white" />
       </button>
+      <button 
+        className="button hideForm" 
+        onClick={() => props.closeCardForm(false)} >
+          <X className="buttonIcon" color="darkgrey"/>
+      </button>
       <div className="formContainer">
-        <button 
-          id="button hideForm" 
-          onClick={() => props.closeCardForm(false)} >
-            <X className="buttonIcon" color="darkgrey" />
-        </button>
         <form id="updateCardForm" onSubmit={handleSubmit(onSubmit)}>
           <input 
             className="textInput" 

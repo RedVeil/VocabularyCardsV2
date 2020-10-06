@@ -130,6 +130,8 @@ body,
 
 .hideForm{
   background: rgb(252, 251, 245);
+  left:65vw;
+  top: 8vh;
 }
 
 .hideForm:hover{
