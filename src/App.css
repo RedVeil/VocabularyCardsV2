@@ -155,6 +155,7 @@ body,
 }
 
 .alert{
+  position: relative;
   text-align: center;
   font-size: 8vw;
   width: 60%;

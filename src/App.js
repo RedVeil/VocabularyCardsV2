@@ -79,8 +79,7 @@ export default function App() {
   };
 
   const reloadAllCards = () => {
-    console.log("reloading")
-    window.location.reload(false);
+    location.reload();
   };
 
   const updateCard = (cardData) => {
@@ -91,18 +90,14 @@ export default function App() {
 
   const deleteCard = (cardKey) => {
     api.delete(cardKey).then(() => {
-      console.log(`deleted todo id ${cardKey}`)
+      if (index === cards.length - 1) {
+        reloadAllCards()
+      } else {
+        nextCard();
+      }
     }).catch((e) => {
       console.log(`There was an error removing ${cardKey}`, e)
-    })
-    console.log(index)
-    console.log(cards.length)
-    if (index === cards.length - 1) {
-      reloadAllCards()
-    } else {
-      console.log("next")
-      nextCard();
-    }
+    }) 
   };
 
   const cardClick = (correct) => {
@@ -110,8 +105,6 @@ export default function App() {
     if (correct && cardKey) {
       deleteCard(cardKey);
     } else {
-        console.log(index)
-        console.log(cards.length)
         if (index === cards.length - 1) {
         reloadAllCards();
         } else {

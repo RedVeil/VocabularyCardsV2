@@ -3,11 +3,6 @@ import { useSpring, animated as a } from 'react-spring'
 import { Plus,  Edit2 } from 'react-feather'; 
 import { useForm } from "react-hook-form";
 
-
-//function createTranslationText(array){
-//  return array.join("<br/>")
-//};
-
 export default function Card(props) {
   const [correct, setCorrect] = useState(false)
   const { register, handleSubmit} = useForm();
@@ -29,8 +24,6 @@ export default function Card(props) {
       props.cardClick(correct)
     }
   };
-
-  //const translationText = createTranslationText(props.back)
     
   return (
     <div style={{display: !props.formVisibility ? "block" : "none"}}>
