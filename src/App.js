@@ -74,10 +74,10 @@ export default function App() {
   };
 
   const updateCard = (cardData) => {
-    const cardKey = cards[index].ref['@ref'].id;
-    deleteCard(cardKey);
-    addCard(cardData);
-    console.log(cards)
+    //const cardKey = cards[index].ref['@ref'].id;
+    //deleteCard(cardKey);
+    //addCard(cardData);
+    console.log(cardData)
   };
 
   const deleteCard = (cardKey) => {
