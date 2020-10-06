@@ -85,6 +85,8 @@ export default function App() {
       }
       updateCards(dbData);
     }).then(set(0));
+    console.log(cards);
+    console.log(index);
   };
 
   const updateCard = (cardData) => {
