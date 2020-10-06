@@ -160,14 +160,14 @@ export default function App() {
       <button 
         className="button primary add" 
         onClick={() => showHideForm(false)} 
-        style={{visibility: user && !formVisibility ? "visible" : "hidden"}}
+        style={{display: user && !formVisibility ? "block" : "none"}}
       >
         <Plus className="buttonIcon" color="white" />
       </button>
       <button 
         className="button primary edit" 
         onClick={() => showHideForm(true)} 
-        style={{visibility: user && !formVisibility ? "visible" : "hidden"}}
+        style={{display: user && !formVisibility ? "block" : "none"}}
       >
         <Edit2 className="buttonIcon" color="white" />
       </button>
@@ -178,7 +178,7 @@ export default function App() {
         updateCard={updateCard}
         original={cardContent.original} 
         translation={cardContent.translation} 
-        style={{ visibility: formVisibility ? "visible" : "hidden" }} 
+        style={{ display: formVisibility ? "block" : "none" }} 
         />
       {!user && <Authform registerUser={registerUser} checkUser={checkUser} />}
       {user && cards.length !== 0 ? transitions.map(({ item, transitionStyle, key}) => {
