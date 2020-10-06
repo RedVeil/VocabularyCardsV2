@@ -144,6 +144,7 @@ body,
   background: rgb(252, 251, 245);
   left:65vw;
   top: 8vh;
+  top: calc(var(--vh, 1vh) * 8)
 }
 
 .hideForm:hover{
@@ -158,7 +159,7 @@ body,
   position: absolute;
   text-align: center;
   font-size: 8vw;
-  left:30vw;
+  left: 50%;
   top: 1vh;
   top: calc(var(--vh, 1vh) * 1);
 }
