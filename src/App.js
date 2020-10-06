@@ -182,8 +182,8 @@ export default function App() {
       }) :<div>
             <button
               className="button primary add"
-              onClick={() => props.showHideForm(false)}
-              style={{ display: props.user && !props.formVisibility ? "block" : "none" }}>
+              onClick={() => showHideForm(false)}
+              style={{ display: user && !formVisibility ? "block" : "none" }}>
               <Plus className="buttonIcon" color="white" />
             </button>
             <p id="noMoreCardsMessage">You have no more Cards...</p>
