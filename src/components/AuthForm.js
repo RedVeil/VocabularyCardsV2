@@ -33,20 +33,20 @@ export default function AuthForm(props) {
   return (
     <div>
       <a.div 
-        className="c front" 
+        className="card front" 
         style={{opacity: opacity.interpolate(o => 1 - o), 
                 transform, 
                 background: flipped && correct ? "lightgreen" : "rgb(252, 251, 245)"}}
       >
         {flipped && !correct ? <div className="alert error">I couldnt find you</div> : ""}
         <button 
-          className="formButton login" 
+          className="button primary login" 
           type="submit" 
           form="loginForm"
         >
           <LogIn className="buttonIcon" color="white" />
       </button>
-        <div className="translationForm">
+        <div className="formContainer">
           <form id="loginForm" onSubmit={handleSubmit(onSubmit)}>
             <input 
               className="textInput" 

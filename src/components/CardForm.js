@@ -25,21 +25,21 @@ export default function CardForm(props) {
 
 
   return (
-    <div className="c CardFormContainer" style={props.style}>
+    <div className="card" style={props.style}>
       {added && <div className="alert">added</div>}
       {props.original && 
-        <button className="formButton edit" onClick={handleDelete}>
+        <button className="button primary edit" onClick={handleDelete}>
           <Trash className="buttonIcon" color="white" />
       </button>}
       <button 
-        className="formButton add" 
+        className="button primary add" 
         type="submit" 
         form="updateCardForm">
           <Plus className="buttonIcon" color="white" />
       </button>
-      <div className="CardForm">
+      <div className="formContainer">
         <button 
-          id="hideFormButton" 
+          id="button hideForm" 
           onClick={() => props.closeCardForm(false)} >
             <X className="buttonIcon" color="darkgrey" />
         </button>

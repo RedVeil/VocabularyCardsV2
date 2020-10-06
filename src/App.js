@@ -157,15 +157,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <CardForm 
-        closeCardForm={showHideForm}
-        addCard={addCard} 
-        deleteCard={deleteCard}
-        updateCard={updateCard}
-        original={cardContent.original} 
-        translation={cardContent.translation} 
-        style={{ visibility: formVisibility ? "visible" : "hidden" }} 
-        />
       <button 
         className="formButton add" 
         onClick={() => showHideForm(false)} 
@@ -180,6 +171,15 @@ export default function App() {
       >
         <Edit2 className="buttonIcon" color="white" />
       </button>
+      <CardForm 
+        closeCardForm={showHideForm}
+        addCard={addCard} 
+        deleteCard={deleteCard}
+        updateCard={updateCard}
+        original={cardContent.original} 
+        translation={cardContent.translation} 
+        style={{ visibility: formVisibility ? "visible" : "hidden" }} 
+        />
       {!user && <Authform registerUser={registerUser} checkUser={checkUser} />}
       {user && cards.length !== 0 ? transitions.map(({ item, transitionStyle, key}) => {
         return <Card 

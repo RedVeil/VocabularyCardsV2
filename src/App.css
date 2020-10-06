@@ -32,7 +32,7 @@ body,
   perspective: 1000px;
 }
 
-.c {
+.card {
   position: absolute;
   top: 1vh;
   left: 5vw;
@@ -61,40 +61,39 @@ body,
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
 }
 
-.CardFormContainer{
+.cardFormContainer{
   z-index: 2;
   margin: 0;
 }
 
-.CardForm{
+.cardForm{
   position: absolute;
   display: inline;
-  z-index: 2;
   top:30%;
+  top: calc(var(--vh, 1vh) * 15);
   left:50%;
   text-align: center; 
 }
 
-.CardForm form{
+.cardForm form{
   position: relative; 
   left: -50%;
 }
 
-.CardForm .textInput{
+.cardForm .textInput{
   background:rgb(252, 251, 245);
 }
 
-.translationForm {
+.formContainer {
   position: absolute;
   display: inline;
-  z-index: 1;
   top: 35%;
   top: calc(var(--vh, 1vh) * 15);
   left:50%;
   text-align: center; 
 }
 
-.translationForm form{
+.formContainer form{
   position: relative; 
   left: -50%;
 }
@@ -112,22 +111,24 @@ body,
   outline: none;
 }
 
-.formButton{
-  top:80vh;
-  top: calc(var(--vh, 1vh) * 80);
+.button{
   position: absolute;
-  z-index: 2;
-  background: #ed2553;
   width: 15vw;
   height: 15vw;
   border: none;
   border-radius: 100%;
   cursor: pointer;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
   outline: none;
 }
 
-.formButton:hover{
+.primary{
+  top:80vh;
+  top: calc(var(--vh, 1vh) * 80);
+  background: #ed2553;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+}
+
+.primary:hover{
   background: lightcoral;
 }
 
@@ -143,49 +144,33 @@ body,
   left:40vw;
 }
 
-#hideFormButton{
-  width: 15vw;
-  height: 15vw;
-  border-radius: 100%;
-  background:none;
-  border:none;
-  cursor: pointer;
-  outline: none;
+.hideForm{
+  background: rgb(252, 251, 245);
 }
 
-#hideFormButton:hover{
-  background: rgb(210, 232, 240);
+.hideForm:hover{
+  background:lightcoral;
 }
 
-#submitButton{
+.buttonIcon{
   position: relative;
-  top:0.8vh;
-  cursor: pointer;
-  background:none;
-  border:none;
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto,
-    segoe ui, arial, sans-serif;
+}
+
+.alert{
+  text-align: center;
   font-size: 8vw;
-  font-weight: 800;
-  text-transform: uppercase;
-  color:rgb(83, 83, 83);
-  outline: none;
+  width: 60%;
+  margin: 50px auto;
 }
 
-#submitButton:hover{
-  color:rgb(54, 54, 54);
+.error{
+  color: lightcoral;
 }
 
-#hideFormButton .buttonIcon{
-  position: relative;
-  top:4px;
-  right:2px;
-}
-
-#showFormButton .buttonIcon{
-  position: relative;
-  top:3px;
-  right:2px;
+#noMoreCardsMessage{
+  text-align: center;
+  width: 60%;
+  margin: 50px auto;
 }
 
 .signup-label {
@@ -266,22 +251,4 @@ border: solid #fff;
 border-width: 0 2px 2px 0;
 background-color: transparent;
 border-radius: 0;
-}
-
-.alert{
-  text-align: center;
-  font-size: 8vw;
-  width: 60%;
-  margin: 50px auto;
-}
-
-.error{
-  color: lightcoral;
-}
-
-
-#noMoreCardsMessage{
-  text-align: center;
-  width: 60%;
-  margin: 50px auto;
 }
