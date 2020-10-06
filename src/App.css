@@ -90,7 +90,8 @@ body,
   top: 35%;
   top: calc(var(--vh, 1vh) * 15);
   left:50%;
-  text-align: center; 
+  text-align: center;
+  z-index:1;
 }
 
 .formContainer form{
@@ -119,6 +120,7 @@ body,
   border-radius: 100%;
   cursor: pointer;
   outline: none;
+  z-index:1;
 }
 
 .primary{
