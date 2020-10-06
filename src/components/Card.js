@@ -30,7 +30,7 @@ export default function Card(props) {
       {!flipped && 
       <div className="translationForm">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input className="textInput" name="inputTranslation" ref={register({ required: true })} placeholder="Translation..."/>
+          <input className="textInput" name="inputTranslation" ref={register({ required: true })} placeholder="Translation..." autoComplete={false}/>
         </form>
         </div>}
     <a.div onClick={backClick} style={props.transitionStyle}>
