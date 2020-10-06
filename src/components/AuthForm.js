@@ -54,6 +54,7 @@ export default function AuthForm(props) {
               ref={register({ required: true })}
               placeholder="An app needs a name..." 
               onTouched={window.scrollTo(0,0)}
+              autoComplete="off"
               />
             <input 
               className="textInput" 
@@ -61,6 +62,7 @@ export default function AuthForm(props) {
               ref={register({ required: true })} 
               placeholder="...and a mail" 
               onTouched={window.scrollTo(0,0)}
+              autoComplete="off"
               />
             <label className="signup-label">
               <input
