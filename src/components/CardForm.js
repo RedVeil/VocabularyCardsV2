@@ -25,46 +25,44 @@ export default function CardForm(props) {
 
 
   return (
-    <div className="card cardForm" style={props.style}>
-      <div className="moveContentUp">
-        {added && <div className="alert">added</div>}
-        {props.original &&
-          <button className="button primary edit" onClick={handleDelete}>
-            <Trash className="buttonIcon" color="white" />
-          </button>}
-        <button
-          className="button primary add"
-          type="submit"
-          form="updateCardForm">
-          <Plus className="buttonIcon" color="white" />
-        </button>
-        <button
-          className="button hideForm"
-          onClick={() => props.closeCardForm(false)} >
-          <X className="buttonIcon" color="darkgrey" />
-        </button>
-        <div className="formContainer">
-          <form id="updateCardForm" onSubmit={handleSubmit(onSubmit)}>
-            <input
-              className="textInput"
-              name="original"
-              ref={register({ required: true })}
-              placeholder="Original"
-              defaultValue={props.original}
-              onTouched={window.scrollTo(0, 0)}
-              autoComplete="off"
-            />
-            <input
-              className="textInput"
-              name="translation"
-              ref={register({ required: true })}
-              placeholder="Translation"
-              defaultValue={props.translation}
-              onTouched={window.scrollTo(0, 0)}
-              autoComplete="off"
-            />
-          </form>
-        </div>
+    <div className="card" style={props.style}>
+      {added && <div className="alert">added</div>}
+      {props.original &&
+        <button className="button primary edit" onClick={handleDelete}>
+          <Trash className="buttonIcon" color="white" />
+        </button>}
+      <button
+        className="button primary add"
+        type="submit"
+        form="updateCardForm">
+        <Plus className="buttonIcon" color="white" />
+      </button>
+      <button
+        className="button hideForm"
+        onClick={() => props.closeCardForm(false)} >
+        <X className="buttonIcon" color="darkgrey" />
+      </button>
+      <div className="formContainer">
+        <form id="updateCardForm" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            className="textInput"
+            name="original"
+            ref={register({ required: true })}
+            placeholder="Original"
+            defaultValue={props.original}
+            onTouched={window.scrollTo(0, 0)}
+            autoComplete="off"
+          />
+          <input
+            className="textInput"
+            name="translation"
+            ref={register({ required: true })}
+            placeholder="Translation"
+            defaultValue={props.translation}
+            onTouched={window.scrollTo(0, 0)}
+            autoComplete="off"
+          />
+        </form>
       </div>
     </div>
   )
