@@ -4,9 +4,9 @@ import { Plus,  Edit2 } from 'react-feather';
 import { useForm } from "react-hook-form";
 
 
-function createTranslationText(array){
-  return array.join("<br/>")
-};
+//function createTranslationText(array){
+//  return array.join("<br/>")
+//};
 
 export default function Card(props) {
   const [correct, setCorrect] = useState(false)
@@ -30,7 +30,7 @@ export default function Card(props) {
     }
   };
 
-  const translationText = createTranslationText(props.back)
+  //const translationText = createTranslationText(props.back)
     
   return (
     <div style={{display: !props.formVisibility ? "block" : "none"}}>
@@ -72,7 +72,9 @@ export default function Card(props) {
           className="card back" 
           style={{ background: correct ? "lightgreen" : "lightcoral", opacity: opacity.interpolate(o => 1 - o), transform }}
         > 
-          <p className="text">{translationText}</p>
+          <div className="text">
+            {props.back.map(text => <p>{text}</p>)}
+          </div>
         </a.div>
       </a.div>
     </div>
