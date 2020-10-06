@@ -13,7 +13,7 @@ export default function CardForm(props) {
     } else {
       props.addCard([data.original.trim(), data.translation.trim()]);
       add(true);
-      setTimeout(() => { add(false) }, 1000);
+      //setTimeout(() => { add(false) }, 1000);
       reset();
     }
   };
