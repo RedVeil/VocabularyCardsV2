@@ -27,7 +27,7 @@ export default function Card(props) {
   };
     
   return (
-    <div>
+    <div style={{display: !props.formVisibility ? "block" : "none"}}>
       {!flipped && 
       <div className="formContainer">
         <form onSubmit={handleSubmit(onSubmit)}>
