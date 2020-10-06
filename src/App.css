@@ -118,7 +118,7 @@ body,
 }
 
 .primary{
-  top:80vh;
+  top: 80vh;
   top: calc(var(--vh, 1vh) * 80);
   background: #ed2553;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
@@ -143,8 +143,8 @@ body,
 .hideForm{
   background: rgb(252, 251, 245);
   left:65vw;
-  top: 8vh;
-  top: calc(var(--vh, 1vh) * 8)
+  top: 5vh;
+  top: calc(var(--vh, 1vh) * 5)
 }
 
 .hideForm:hover{
@@ -159,7 +159,7 @@ body,
   position: absolute;
   text-align: center;
   font-size: 8vw;
-  left: 50%;
+  left: 35vw;
   top: 1vh;
   top: calc(var(--vh, 1vh) * 1);
 }
