@@ -27,33 +27,33 @@ export default function Card(props) {
     
   return (
     <div>
-    <a.div onClick={backClick} style={props.transitionStyle}>
-      <a.div 
-        className="card front" 
-        style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) }}
-      >
-        {!flipped && 
-        <div className="formContainer">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input 
-              className="textInput" 
-              name="inputTranslation" 
-              ref={register({ required: true })} 
-              onTouched={window.scrollTo(0,0)} 
-              placeholder="Translation..."
-              autoComplete="off"
-            />
-          </form>
-          </div>}
-        <p className="text">{props.front}</p>
+      {!flipped && 
+      <div className="formContainer">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <input 
+            className="textInput" 
+            name="inputTranslation" 
+            ref={register({ required: true })} 
+            onTouched={window.scrollTo(0,0)} 
+            placeholder="Translation..."
+            autoComplete="off"
+          />
+        </form>
+      </div>}
+      <a.div onClick={backClick} style={props.transitionStyle}>
+        <a.div 
+          className="card front" 
+          style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) }}
+        >
+          <p className="text">{props.front}</p>
+        </a.div>
+        <a.div 
+          className="card back" 
+          style={{ background: correct ? "lightgreen" : "lightcoral", opacity: opacity.interpolate(o => 1 - o), transform }}
+        >
+          <p className="text">{props.back}</p>
+        </a.div>
       </a.div>
-      <a.div 
-        className="card back" 
-        style={{ background: correct ? "lightgreen" : "lightcoral", opacity: opacity.interpolate(o => 1 - o), transform }}
-      >
-        <p className="text">{props.back}</p>
-      </a.div>
-    </a.div>
-  </div>
+    </div>
   )
 };
