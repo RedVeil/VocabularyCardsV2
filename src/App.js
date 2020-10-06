@@ -158,14 +158,14 @@ export default function App() {
   return (
     <div className="App">
       <button 
-        className="button add" 
+        className="button primary add" 
         onClick={() => showHideForm(false)} 
         style={{visibility: user && !formVisibility ? "visible" : "hidden"}}
       >
         <Plus className="buttonIcon" color="white" />
       </button>
       <button 
-        className="button edit" 
+        className="button primary edit" 
         onClick={() => showHideForm(true)} 
         style={{visibility: user && !formVisibility ? "visible" : "hidden"}}
       >
