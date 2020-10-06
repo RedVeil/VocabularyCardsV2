@@ -16,7 +16,7 @@ export default function Card(props) {
   })
 
   const onSubmit = (data) => {
-    setCorrect(props.back.toLowerCase().includes(data.inputTranslation.toLowerCase()))
+    setCorrect(props.back[0].toLowerCase() === data.inputTranslation.toLowerCase())
     set(state => !state)
   }
 
