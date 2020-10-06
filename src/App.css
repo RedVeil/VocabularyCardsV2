@@ -32,8 +32,16 @@ body,
   perspective: 1000px;
 }
 
-.moveContentUp{
-  margin-top: -1vh;
+.correctContent{
+  position: relative;
+}
+
+.up{
+  top: -1vh
+}
+
+.left{
+  left: -5vw
 }
 
 .card {
