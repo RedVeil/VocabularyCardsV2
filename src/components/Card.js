@@ -15,6 +15,7 @@ export default function Card(props) {
   })
 
   const onSubmit = (data) => {
+    console.log(props.back.filter(word => word.toLowerCase() === data.inputTranslation.toLowerCase())); 
     setCorrect(props.back[0].toLowerCase() === data.inputTranslation.toLowerCase())
     set(state => !state)
   }
@@ -59,7 +60,7 @@ export default function Card(props) {
           className="card front" 
           style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) }}
         >
-          <p className="text">{props.front}</p>
+          <p className="text">{props.front.title()}</p>
         </a.div>
         <a.div 
           className="card back" 

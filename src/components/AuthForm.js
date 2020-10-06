@@ -15,7 +15,6 @@ export default function AuthForm(props) {
   });
 
   const onSubmit = (data) => {
-    console.log(data)
     if (data.signup){
       set(state => !state);
       setCorrect(state => !state);
