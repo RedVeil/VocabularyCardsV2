@@ -36,7 +36,7 @@ export default function Card(props) {
             ref={register({ required: true })} 
             onTouched={window.scrollTo(0,0)} 
             placeholder="Translation..."
-            autoComplete={false}
+            autoComplete="off"
           />
         </form>
         </div>}
