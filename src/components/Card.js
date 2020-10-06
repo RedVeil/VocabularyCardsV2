@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSpring, animated as a } from 'react-spring'
+import { Plus,  Edit2 } from 'react-feather'; 
 import { useForm } from "react-hook-form";
 
 
@@ -40,6 +41,20 @@ export default function Card(props) {
           />
         </form>
       </div>}
+      <button 
+        className="button primary add" 
+        onClick={() => props.showHideForm(false)} 
+        style={{display: props.user && !props.formVisibility ? "block" : "none"}}
+      >
+        <Plus className="buttonIcon" color="white" />
+      </button>
+      <button 
+        className="button primary edit" 
+        onClick={() => props.showHideForm(true)} 
+        style={{display: props.user && !props.formVisibility ? "block" : "none"}}
+      >
+        <Edit2 className="buttonIcon" color="white" />
+      </button>
       <a.div onClick={backClick} style={props.transitionStyle}>
         <a.div 
           className="card front" 

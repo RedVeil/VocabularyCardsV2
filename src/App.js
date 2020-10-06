@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useTransition } from 'react-spring';
-import { Plus,  Edit2 } from 'react-feather'; 
 import { v4 as uuidv4 } from 'uuid';
 import analytics from './utils/analytics';
 import api from './utils/api';
@@ -157,20 +156,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <button 
-        className="button primary add" 
-        onClick={() => showHideForm(false)} 
-        style={{display: user && !formVisibility ? "block" : "none"}}
-      >
-        <Plus className="buttonIcon" color="white" />
-      </button>
-      <button 
-        className="button primary edit" 
-        onClick={() => showHideForm(true)} 
-        style={{display: user && !formVisibility ? "block" : "none"}}
-      >
-        <Edit2 className="buttonIcon" color="white" />
-      </button>
       <CardForm 
         closeCardForm={showHideForm}
         addCard={addCard} 
@@ -187,7 +172,11 @@ export default function App() {
                 front={cards[item].data.original} 
                 back={cards[item].data.translation} 
                 transitionStyle={transitionStyle} 
-                cardClick={cardClick}/>
+                cardClick={cardClick}
+                showHideForm={showHideForm}
+                user={user}
+                formVisibility={formVisibility}
+                />
         }) : <div id="noMoreCardsMessage">You have no more Cards...</div>}
     </div>
   )
