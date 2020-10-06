@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useSpring, animated as a } from 'react-spring'
+import { LogIn } from 'react-feather';
 import { useForm } from "react-hook-form";
 
 
@@ -31,21 +32,45 @@ export default function AuthForm(props) {
 
   return (
     <div>
-      <a.div className="c front" style={{ 
-                                opacity: opacity.interpolate(o => 1 - o), 
-                                transform, 
-                                background: flipped && correct ? "lightgreen" : "rgb(252, 251, 245)"}}>
+      <a.div 
+        className="c front" 
+        style={{opacity: opacity.interpolate(o => 1 - o), 
+                transform, 
+                background: flipped && correct ? "lightgreen" : "rgb(252, 251, 245)"}}
+      >
         {flipped && !correct ? <div className="alert error">I couldnt find you</div> : ""}
+        <button 
+          className="formButton login" 
+          type="submit" 
+          form="loginForm"
+        >
+          <LogIn className="buttonIcon" color="white" />
+      </button>
         <div className="translationForm">
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <input className="textInput" name="name" ref={register({ required: true })} placeholder="An app needs a name..." />
-            <input className="textInput" name="email" ref={register({ required: true })} placeholder="...and a mail" />
+          <form id="loginForm" onSubmit={handleSubmit(onSubmit)}>
+            <input 
+              className="textInput" 
+              name="name" 
+              ref={register({ required: true })}
+              placeholder="An app needs a name..." 
+              onTouched={window.scrollTo(0,0)}
+              />
+            <input 
+              className="textInput" 
+              name="email" 
+              ref={register({ required: true })} 
+              placeholder="...and a mail" 
+              onTouched={window.scrollTo(0,0)}
+              />
             <label className="signup-label">
-              <input className="checkbox" type="checkbox" name="signup" ref={register}/>
-              <span className="checkbox-custom"></span>
+              <input
+                className="checkbox" 
+                type="checkbox" 
+                name="signup" 
+                ref={register}/>
+              <span className="checkbox-custom"/>
               Sign Up
             </label>
-            <input id="submitButton" type="submit" value="Login"/>
           </form>
         </div>
       </a.div>

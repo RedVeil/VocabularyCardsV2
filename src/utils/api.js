@@ -43,21 +43,10 @@ const getUser = (data) => {
   })
 }
 
-const update = (cardId, data) => {
-  console.log(`ID: ${cardId} data: ${data.original}`)
-  return fetch(`/.netlify/functions/update-card/${cardId}`, {
-    body: JSON.stringify(data),
-    method: 'POST'
-  }).then(response => {
-    return response.json()
-  })
-}
-
 export default {
   create: create,
   readAll: readAll,
   delete: deleteCard,
   getUser: getUser,
   createUser: createUser,
-  update:update
 }

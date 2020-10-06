@@ -16,6 +16,8 @@ body,
   font-weight: 800;
   text-transform: uppercase;
   color:rgb(83, 83, 83);
+  position: fixed;
+  scroll-behavior: smooth;
 }
 
 #root > div {
@@ -32,10 +34,11 @@ body,
 
 .c {
   position: absolute;
-  top: 5vh;
+  top: 1vh;
   left: 5vw;
   width: 90vw;
   height: 90vh;
+  height: calc(var(--vh, 1vh) * 98);
   cursor: pointer;
   will-change: transform, opacity;
   border-radius: 20px;
@@ -47,6 +50,7 @@ body,
   margin: 0;
   position: absolute;
   top: 50%;
+  top: calc(var(--vh, 1vh) * 50);
   left: 50%;
   transform: translateX(-50%) translateX(-0.4px) translateY(-50%) translateY(-0.4px);
   text-align: center;
@@ -57,20 +61,12 @@ body,
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
 }
 
-.newCardContainer{
+.CardFormContainer{
   z-index: 2;
   margin: 0;
-  position: absolute;
-  top: 5vh;
-  left: 5vw;
-  width: 90vw;
-  height:90vh;
-  background: rgb(252, 251, 245);
-  border-radius: 20px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
 }
 
-.newCardForm{
+.CardForm{
   position: absolute;
   display: inline;
   z-index: 2;
@@ -79,12 +75,12 @@ body,
   text-align: center; 
 }
 
-.newCardForm form{
+.CardForm form{
   position: relative; 
   left: -50%;
 }
 
-.newCardForm .textInput{
+.CardForm .textInput{
   background:rgb(252, 251, 245);
 }
 
@@ -93,6 +89,7 @@ body,
   display: inline;
   z-index: 1;
   top: 35%;
+  top: calc(var(--vh, 1vh) * 15);
   left:50%;
   text-align: center; 
 }
@@ -117,11 +114,12 @@ body,
 
 .formButton{
   top:80vh;
+  top: calc(var(--vh, 1vh) * 80);
   position: absolute;
   z-index: 2;
   background: #ed2553;
-  width: 50px;
-  height: 50px;
+  width: 15vw;
+  height: 15vw;
   border: none;
   border-radius: 100%;
   cursor: pointer;
@@ -141,9 +139,13 @@ body,
   left:20vw;
 }
 
+.login{
+  left:40vw;
+}
+
 #hideFormButton{
-  width: 50px;
-  height: 50px;
+  width: 15vw;
+  height: 15vw;
   border-radius: 100%;
   background:none;
   border:none;
