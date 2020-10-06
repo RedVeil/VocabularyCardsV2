@@ -14,7 +14,6 @@ function reloadAllCards(){
   window.location.reload();
 };
 
-
 function createTranslation(cardData) {
   return cardData.split(",").map(item => item.trim())
 };
