@@ -9,6 +9,8 @@ import CardForm from "./components/CardForm";
 import Authform from "./components/AuthForm";
 import './App.css';
 
+
+
 function createTranslation(cardData) {
   return cardData.split(",").map(item => item.trim())
 };
@@ -76,6 +78,15 @@ export default function App() {
     })
   };
 
+  const reloadAllCards = () => {
+    api.readAll().then((dbData) => {
+      if (dbData.message === 'unauthorized') {
+        return false
+      }
+      updateCards(dbData);
+    }).then(set(0));
+  };
+
   const updateCard = (cardData) => {
     const cardKey = cards[index].ref['@ref'].id;
     deleteCard(cardKey);
@@ -89,12 +100,7 @@ export default function App() {
       console.log(`There was an error removing ${cardKey}`, e)
     })
     if (index === cards.length - 1) {
-      api.readAll().then((dbData) => {
-        if (dbData.message === 'unauthorized') {
-          return false
-        }
-        updateCards(dbData);
-      }).then(set(0));
+      reloadAllCards()
     } else {
       nextCard();
     }
@@ -104,7 +110,13 @@ export default function App() {
     const cardKey = cards[index].ref['@ref'].id;
     if (correct && cardKey) {
       deleteCard(cardKey);
-    } else { nextCard() }
+    } else {
+        if (index === cards.length - 1) {
+        reloadAllCards();
+        } else {
+          nextCard();
+        };
+      };
   };
 
   const registerUser = (name, email) => {
