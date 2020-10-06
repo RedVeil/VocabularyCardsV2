@@ -11,7 +11,7 @@ import './App.css';
 
 
 function reloadAllCards(){
-  location.window.reload();
+  window.location.reload();
 };
 
 
