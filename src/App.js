@@ -10,7 +10,7 @@ import Authform from "./components/AuthForm";
 import './App.css';
 
 function createTranslation(cardData) {
-  return cardData.split("/").map(item => item.trim())
+  return cardData.split(",").map(item => item.trim())
 };
 
 function removeOptimisticCards(cards) {
