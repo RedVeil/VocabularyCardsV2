@@ -79,14 +79,8 @@ export default function App() {
   };
 
   const reloadAllCards = () => {
-    api.readAll().then((dbData) => {
-      if (dbData.message === 'unauthorized') {
-        return false
-      }
-      updateCards(dbData);
-    }).then(set(0));
-    console.log(cards);
-    console.log(index);
+    console.log("reloading")
+    window.location.reload(false);
   };
 
   const updateCard = (cardData) => {
@@ -106,6 +100,7 @@ export default function App() {
     if (index === cards.length - 1) {
       reloadAllCards()
     } else {
+      console.log("next")
       nextCard();
     }
   };
