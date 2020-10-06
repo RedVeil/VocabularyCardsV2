@@ -99,6 +99,8 @@ export default function App() {
     }).catch((e) => {
       console.log(`There was an error removing ${cardKey}`, e)
     })
+    console.log(index)
+    console.log(cards.length)
     if (index === cards.length - 1) {
       reloadAllCards()
     } else {
@@ -111,6 +113,8 @@ export default function App() {
     if (correct && cardKey) {
       deleteCard(cardKey);
     } else {
+        console.log(index)
+        console.log(cards.length)
         if (index === cards.length - 1) {
         reloadAllCards();
         } else {
