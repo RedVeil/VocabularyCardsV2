@@ -26,7 +26,7 @@ export default function CardForm(props) {
   return (
     <div className="card" style={props.style}>
       <div className="correctContent up">
-        {added && <div className="alert">added</div>}
+        {added && <p className="alert">added</p>}
         <div className="correctContent left">
           {props.original &&
             <button className="button primary edit" onClick={handleDelete}>

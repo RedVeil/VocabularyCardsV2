@@ -158,8 +158,8 @@ body,
   position: absolute;
   text-align: center;
   font-size: 8vw;
-  width: 60%;
   margin: 50px auto;
+  left:50%;
 }
 
 .error{
