@@ -159,7 +159,7 @@ body,
   position: absolute;
   text-align: center;
   font-size: 8vw;
-  left: 35vw;
+  left: 32vw;
   top: 1vh;
   top: calc(var(--vh, 1vh) * 1);
 }
