@@ -8,7 +8,9 @@ import CardForm from "./components/CardForm";
 import Authform from "./components/AuthForm";
 import './App.css';
 
-
+function createTranslation(cardData){
+  return cardData.split("/")
+}
 
 function removeOptimisticCards(cards){
   return cards.filter((card) => {
@@ -53,9 +55,11 @@ export default function App() {
   });
   
   const addCard = (cardData) => {
+    const translation = createTranslation(cardData[1])
+    console.log(typeof(translation))
     const newCard = {
       original: cardData[0],
-      translation: cardData[1],
+      translation: translation,
       user_id: user
     };
     const optimisticNewCard = {
