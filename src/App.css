@@ -253,3 +253,52 @@ border-width: 0 2px 2px 0;
 background-color: transparent;
 border-radius: 0;
 }
+
+#svgInput {
+  fill: rgba(243,242,234,1);
+}
+.svgInput {
+  overflow: visible;
+  position: absolute;
+  width: 293.998px;
+  height: 165.999px;
+  left: 25.002px;
+  top: 75.001px;
+  transform: matrix(1,0,0,1,0,0);
+}
+#svgShadow {
+  fill: rgba(252,251,245,1);
+}
+.svgShadow {
+  filter: drop-shadow(-3px 0px 6px rgba(0, 0, 0, 0.059));
+  overflow: visible;
+  position: absolute;
+  width: 321px;
+  height: 109px;
+  left: 25px;
+  top: 69.001px;
+  transform: matrix(1,0,0,1,0,0);
+}
+
+#svgHideRight {
+  fill: rgba(252,251,245,1);
+}
+.svgHideRight {
+  position: absolute;
+  overflow: visible;
+  width: 28px;
+  height: 178px;
+  left: 319px;
+  top: 47px;
+}
+#svgHideTop {
+  fill: rgba(252,251,245,1);
+}
+.svgHideTop {
+  position: absolute;
+  overflow: visible;
+  width: 322px;
+  height: 24px;
+  left: 25px;
+  top: 47px;
+}
