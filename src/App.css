@@ -15,7 +15,7 @@ body,
   font-size: 8vw;
   font-weight: 800;
   text-transform: uppercase;
-  color:rgb(83, 83, 83);
+  color:#2C5167;
   position: fixed;
   scroll-behavior: smooth;
 }
@@ -54,7 +54,7 @@ body,
   cursor: pointer;
   will-change: transform, opacity;
   border-radius: 20px;
-  background:rgb(252, 251, 245);
+  background#FCFBF5;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
 }
 
@@ -94,16 +94,22 @@ body,
 }
 
 .textInput{
-  background:rgb(252, 251, 245);
-  border: 1px solid #ed2553;
+  background:#FCFBF5;
+  border: none;
   border-radius: 32px;
-  padding:12px;
+  padding:20px;
   margin:10px;
   font-family: raleway;
   font-size: 4vw;
   font-weight: 500;
   color: grey;
   outline: none;
+  box-shadow: inset 3px 3px 3px rgba(0,0,0,0.06), inset -4px -4px 4px #fff;
+  text-shadow: 1px 1px 0 #fff;
+}
+
+.textInput:focus {
+  box-shadow:  inset 1px 1px 2px rgba(0,0,0,0.06), inset -1px -1px 2px #fff;
 }
 
 .button{
@@ -252,53 +258,4 @@ border: solid #fff;
 border-width: 0 2px 2px 0;
 background-color: transparent;
 border-radius: 0;
-}
-
-#svgInput {
-  fill: rgba(243,242,234,1);
-}
-.svgInput {
-  overflow: visible;
-  position: absolute;
-  width: 293.998px;
-  height: 165.999px;
-  left: 25.002px;
-  top: 75.001px;
-  transform: matrix(1,0,0,1,0,0);
-}
-#svgShadow {
-  fill: rgba(252,251,245,1);
-}
-.svgShadow {
-  filter: drop-shadow(-3px 0px 6px rgba(0, 0, 0, 0.059));
-  overflow: visible;
-  position: absolute;
-  width: 321px;
-  height: 109px;
-  left: 25px;
-  top: 69.001px;
-  transform: matrix(1,0,0,1,0,0);
-}
-
-#svgHideRight {
-  fill: rgba(252,251,245,1);
-}
-.svgHideRight {
-  position: absolute;
-  overflow: visible;
-  width: 28px;
-  height: 178px;
-  left: 319px;
-  top: 47px;
-}
-#svgHideTop {
-  fill: rgba(252,251,245,1);
-}
-.svgHideTop {
-  position: absolute;
-  overflow: visible;
-  width: 322px;
-  height: 24px;
-  left: 25px;
-  top: 47px;
 }
