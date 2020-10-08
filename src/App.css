@@ -54,7 +54,7 @@ body,
   cursor: pointer;
   will-change: transform, opacity;
   border-radius: 20px;
-  background#FCFBF5;
+  background: #FCFBF5;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
 }
 
