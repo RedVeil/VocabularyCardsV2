@@ -105,8 +105,8 @@ body,
 }
 
 .formContainer form{
-  position: relative; 
-  left: -59%;
+  position: absolute; 
+  left: -47.5vw;
 }
 
 .textInput{
@@ -120,7 +120,7 @@ body,
   font-weight: 500;
   color: grey;
   outline: none;
-  box-shadow: inset 0px 5px 3px rgba(0,0,0,0.12);
+  box-shadow: inset 0px 7px 3px rgba(0,0,0,0.12);
   text-shadow: 1px 1px 0 #fff;
   text-align: center;
 }
