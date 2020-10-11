@@ -43,7 +43,7 @@ export default function AuthForm(props) {
           type="submit" 
           form="loginForm"
         >
-          <LogIn className="buttonIcon" color="#2C5167" />
+          <LogIn className="buttonIcon loginButton" color="#2C5167" />
       </button>
         <div className="formContainer">
           <form id="loginForm" onSubmit={handleSubmit(onSubmit)}>

@@ -176,6 +176,11 @@ body,
 
 .buttonIcon{
   position: relative;
+  top:2px;
+}
+
+.loginButton{
+  left: -2px;
 }
 
 .alert{
