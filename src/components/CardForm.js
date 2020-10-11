@@ -24,19 +24,19 @@ export default function CardForm(props) {
   }
 
   return (
-    <div className="card" style={props.style}>
+    <div className="card front" style={props.style}>
       <div className="correctContent up">
         {added && <p className="alert">added</p>}
         <div className="correctContent left">
           {props.original &&
             <button className="button primary edit" onClick={handleDelete}>
-              <Trash className="buttonIcon" color="white" />
+              <Trash className="buttonIcon" color="#2C5167" />
             </button>}
           <button
             className="button primary add"
             type="submit"
             form="updateCardForm">
-            <Plus className="buttonIcon" color="white" />
+            <Plus className="buttonIcon" color="#2C5167" />
           </button>
         </div>
         <button
