@@ -60,11 +60,13 @@ body,
 .back, .front{
   top: 1vh;
   left: 5vw;
+  z-index: 3;
 }
 
 .background1{
   top: 2vh;
   left: 6vw;
+  z-index: 2;
 }
 
 .background2{
@@ -75,8 +77,8 @@ body,
 .text{
   margin: 0;
   position: absolute;
-  top: 50%;
-  top: calc(var(--vh, 1vh) * 50);
+  /*top: 50%;
+  top: calc(var(--vh, 1vh) * 50);*/
   left: 50%;
   transform: translateX(-50%) translateX(-0.4px) translateY(-50%) translateY(-0.4px);
   text-align: center;
@@ -99,7 +101,7 @@ body,
   top: calc(var(--vh, 1vh) * 15);
   left:50%;
   text-align: center;
-  z-index:1;
+  z-index:4;
 }
 
 .formContainer form{
