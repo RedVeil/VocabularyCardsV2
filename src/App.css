@@ -15,7 +15,7 @@ body,
   font-size: 8vw;
   font-weight: 800;
   text-transform: uppercase;
-  color:#2C5167;
+  color:#404040;
   position: fixed;
   scroll-behavior: smooth;
 }
@@ -203,6 +203,7 @@ body,
   cursor: pointer;
   font-size: 4vw;
   clear: both;
+  margin: 5% 0 0 15%;
 }
 
 .signup-label input {
@@ -215,7 +216,7 @@ body,
   position: relative;
   display: inline-block;
   top: 5px;
-  margin-right: 5px;
+  margin-right: 10px;
   height: 24px;
   width: 24px;
   background-color: transparent;

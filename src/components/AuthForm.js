@@ -43,7 +43,7 @@ export default function AuthForm(props) {
           type="submit" 
           form="loginForm"
         >
-          <LogIn className="buttonIcon" color="white" />
+          <LogIn className="buttonIcon" color="#2C5167" />
       </button>
         <div className="formContainer">
           <form id="loginForm" onSubmit={handleSubmit(onSubmit)}>
@@ -51,7 +51,7 @@ export default function AuthForm(props) {
               className="textInput" 
               name="name" 
               ref={register({ required: true })}
-              placeholder="An app needs a name..." 
+              placeholder="Name" 
               onTouched={window.scrollTo(0,0)}
               autoComplete="off"
               />
@@ -59,7 +59,7 @@ export default function AuthForm(props) {
               className="textInput" 
               name="email" 
               ref={register({ required: true })} 
-              placeholder="...and a mail" 
+              placeholder="Email" 
               onTouched={window.scrollTo(0,0)}
               autoComplete="off"
               />
