@@ -194,7 +194,8 @@ export default function App() {
             <p id="noMoreCardsMessage">You have no more Cards...</p>
           </div>}
       {cards.length > 1 || formVisibility ? <div className="card background1"></div> : ""}
-      {cards.length > 2 || cards.length > 1 && formVisibility ? <div className="card background2"></div> : ""}
+      {cards.length > 1 && formVisibility ? <div className="card background2"></div> : ""}
+      {cards.length > 2 && <div className="card background2"></div>}
     </div>
   )
 };
