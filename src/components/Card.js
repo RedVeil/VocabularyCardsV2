@@ -45,14 +45,14 @@ export default function Card(props) {
         onClick={() => props.showHideForm(false)}
         style={{ display: props.user && !props.formVisibility ? "block" : "none" }}
       >
-        <Plus className="buttonIcon" color="white" />
+        <Plus className="buttonIcon" color="#2C5167" />
       </button>
       <button
         className="button primary edit"
         onClick={() => props.showHideForm(true)}
         style={{ display: props.user && !props.formVisibility ? "block" : "none" }}
       >
-        <Edit2 className="buttonIcon" color="white" />
+        <Edit2 className="buttonIcon" color="#2C5167" />
       </button>
       <a.div onClick={backClick} style={props.transitionStyle}>
         <a.div

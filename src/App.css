@@ -46,16 +46,20 @@ body,
 
 .card {
   position: absolute;
-  top: 1vh;
-  left: 5vw;
   width: 90vw;
-  height: 90vh;
-  height: calc(var(--vh, 1vh) * 98);
+  height: 72vh;
+  height: calc(var(--vh, 1vh) * 72);
+  min-height: 450px;
   cursor: pointer;
   will-change: transform, opacity;
   border-radius: 20px;
   background: #FCFBF5;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
+}
+
+.back, .front{
+  top: 1vh;
+  left: 5vw;
 }
 
 .text{
@@ -90,26 +94,27 @@ body,
 
 .formContainer form{
   position: relative; 
-  left: -50%;
+  left: -61%;
 }
 
 .textInput{
-  background:#FCFBF5;
+  background:#F3F2EA;
   border: none;
-  border-radius: 32px;
+  border-radius: 0 32px 32px 0;
   padding:20px;
   margin:10px;
   font-family: raleway;
-  font-size: 4vw;
+  font-size: 5vw;
   font-weight: 500;
   color: grey;
   outline: none;
-  box-shadow: inset 5px 5px 3px rgba(0,0,0,0.12), inset -4px -4px 3px #FFFEF7;
+  box-shadow: inset 5px 5px 3px rgba(0,0,0,0.12);
   text-shadow: 1px 1px 0 #fff;
+  text-align: center;
 }
 
 .textInput:focus {
-  box-shadow:  inset 3px 3px 2px rgba(0,0,0,0.12), inset -3px -3px 2px #FFFEF7;
+  box-shadow:  inset 3px 3px 2px rgba(0,0,0,0.12),  /*inset -3px -3px 2px #FFFEF7*/
 }
 
 .button{
@@ -126,7 +131,7 @@ body,
 .primary{
   top: 80vh;
   top: calc(var(--vh, 1vh) * 80);
-  background: #ed2553;
+  background: #FCFBF5;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
 }
 
