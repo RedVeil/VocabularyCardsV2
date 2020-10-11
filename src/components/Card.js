@@ -63,7 +63,7 @@ export default function Card(props) {
         </a.div>
         <a.div
           className="card back"
-          style={{ background: correct ? "lightgreen" : "lightcoral", opacity: opacity.interpolate(o => 1 - o), transform }}
+          style={{ background: correct ? "#71C974" : "#BF5448", opacity: opacity.interpolate(o => 1 - o), transform }}
         >
           <div className="text">
             {props.back.map(text => <p>{text}</p>)}
