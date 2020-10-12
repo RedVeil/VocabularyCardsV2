@@ -74,15 +74,16 @@ body,
   left: 7vw;
 }
 
-.cardForm{
-  top: 1vh;
-  left: 5vw;
-  z-index: 3;
+.backgroundTransition{
   transition: background-color 0.2s ease;
 }
 
 .added{
   background-color: #71C974;
+}
+
+.addedInput{
+  background-color:#63B065;
 }
 
 .text{
@@ -98,11 +99,6 @@ body,
 .back .text{
   color:white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
-}
-
-.cardForm{
-  z-index: 2;
-  margin: 0;
 }
 
 .formContainer {

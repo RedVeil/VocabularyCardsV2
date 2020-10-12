@@ -26,7 +26,7 @@ export default function CardForm(props) {
   }
 
   return (
-    <div className={classNames("card cardForm", added && "added")} style={props.style}>
+    <div className={classNames("card front backgroundTransition", added && "added")} style={props.style}>
       <div className="correctContent up">
         <div className="correctContent left">
           {props.original &&
@@ -48,7 +48,7 @@ export default function CardForm(props) {
         <div className="formContainer">
           <form id="updateCardForm" onSubmit={handleSubmit(onSubmit)}>
             <input
-              className="textInput"
+              className={classNames("textInput backgroundTransition", added && "addedInput")}
               name="original"
               ref={register({ required: true })}
               placeholder="Original"
@@ -57,7 +57,7 @@ export default function CardForm(props) {
               autoComplete="off"
             />
             <input
-              className="textInput"
+              className={classNames("textInput backgroundTransition", added && "addedInput")}
               name="translation"
               ref={register({ required: true })}
               placeholder="Translation"
