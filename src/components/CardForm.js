@@ -25,7 +25,7 @@ export default function CardForm(props) {
   }
 
   return (
-    <div className="card front" style={props.style, {background:  added && "#71C974"}}>
+    <div className="card front" style={{...props.style, background: added && "#71C974"}}>
       <div className="correctContent up">
         {added && <p className="alert">added</p>}
         <div className="correctContent left">
