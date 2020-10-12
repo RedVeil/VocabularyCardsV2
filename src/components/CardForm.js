@@ -25,7 +25,7 @@ export default function CardForm(props) {
   }
 
   return (
-    <div className={"card cardForm", added && "added"} style={props.style}>
+    <div className={classNames("card cardForm", added && "added")} style={props.style}>
       <div className="correctContent up">
         <div className="correctContent left">
           {props.original &&
