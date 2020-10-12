@@ -74,6 +74,17 @@ body,
   left: 7vw;
 }
 
+.cardForm{
+  top: 1vh;
+  left: 5vw;
+  z-index: 3;
+  transition: background-color 0.2s ease;
+}
+
+.added{
+  background-color: #71C974;
+}
+
 .text{
   margin: 0;
   position: relative;
