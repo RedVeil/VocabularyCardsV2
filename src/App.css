@@ -79,11 +79,11 @@ body,
 }
 
 .added{
-  background-color: #71C974;
+  background-color: #71C974 !important;
 }
 
 .addedInput{
-  background-color:#63B065;
+  background-color: #63B065 !important;
 }
 
 .text{
