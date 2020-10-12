@@ -41,7 +41,7 @@ export default function CardForm(props) {
           </button>
         </div>
         <button
-          className="button hideForm"
+          className={classNames("button hideForm backgroundTransition", added && "added")}
           onClick={() => props.closeCardForm(false)} >
           <X className="buttonIcon" color="darkgrey" />
         </button>
