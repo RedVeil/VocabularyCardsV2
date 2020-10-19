@@ -94,12 +94,13 @@ body,
   left: 50%;
   transform: translateX(-50%) translateX(-0.4px) translateY(-50%) translateY(-0.4px);
   text-align: center;
-}
-
-.back .text{
-  color:white;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
 }
+
+.solution{
+  color:white;
+}
+  
 
 .formContainer {
   position: absolute;
