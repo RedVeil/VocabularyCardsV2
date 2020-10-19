@@ -39,6 +39,9 @@ export default function Card(props) {
               autoComplete="off"
             />
           </form>
+          <div className="text solution">
+            <p>{props.front}</p>
+          </div>
         </div>}
       <button
         className="button primary add"
