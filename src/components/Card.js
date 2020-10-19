@@ -39,7 +39,7 @@ export default function Card(props) {
               autoComplete="off"
             />
           </form>
-          <div className="text solution">
+          <div className="text">
             <p>{props.front}</p>
           </div>
         </div>}
@@ -62,9 +62,6 @@ export default function Card(props) {
           className="card front"
           style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) }}
         >
-          <div className="text solution">
-            <p>{props.front}</p>
-          </div>
         </a.div>
         <a.div
           className="card back"
