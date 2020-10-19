@@ -49,7 +49,7 @@ body,
   width: 90vw;
   height: 72vh;
   height: calc(var(--vh, 1vh) * 72);
-  min-height: 300px;
+  min-height: 350px;
   cursor: pointer;
   will-change: transform, opacity;
   border-radius: 20px;
