@@ -59,7 +59,9 @@ export default function Card(props) {
           className="card front"
           style={{ opacity, transform: transform.interpolate(t => `${t} rotateY(180deg)`) }}
         >
-          <p className="text">{props.front}</p>
+          <div className="text">
+            <p>{props.front}</p>
+          </div>
         </a.div>
         <a.div
           className="card back"
