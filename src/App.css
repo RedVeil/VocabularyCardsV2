@@ -148,8 +148,8 @@ body,
 }
 
 .primary{
-  top: 80vh;
-  top: calc(var(--vh, 1vh) * 80);
+  top: 84vh;
+  top: calc(var(--vh, 1vh) * 84);
   background: #FCFBF5;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.12);
 }
