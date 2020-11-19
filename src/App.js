@@ -161,6 +161,13 @@ export default function App() {
     };
   };
 
+  if(window.innerWidth > 500){
+    return (
+    <div>
+      <p>This App is build for Portrait mode on mobile devices only.</p>
+    </div>)
+  }
+
   return (
     <div className="App">
       <CardForm
